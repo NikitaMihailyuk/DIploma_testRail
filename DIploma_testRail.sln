@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIploma_testRail", "DIploma_testRail.csproj", "{4342A48F-00D0-433A-80BB-E1F287F19FD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4342A48F-00D0-433A-80BB-E1F287F19FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4342A48F-00D0-433A-80BB-E1F287F19FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4342A48F-00D0-433A-80BB-E1F287F19FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4342A48F-00D0-433A-80BB-E1F287F19FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79201D96-2B24-41CA-94ED-AC766118D9B9}
+	EndGlobalSection
+EndGlobal
