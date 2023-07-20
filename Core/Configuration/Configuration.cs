@@ -16,8 +16,9 @@ namespace DIploma_testRail.Core.Configuration
         {
             configurationRoot = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("ApiSetting.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"ApiSetting.json", optional: true, reloadOnChange: true)
                 .Build();
+            Console.WriteLine(Directory.GetCurrentDirectory());
         }
 
         private static T BindConfiguration<T>() where T : IConfiguration, new()

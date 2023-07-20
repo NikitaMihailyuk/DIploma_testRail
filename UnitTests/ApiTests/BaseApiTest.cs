@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DIploma_testRail.Core.Configuration;
 
 namespace DIploma_testRail.UnitTests.ApiTests
 {
@@ -15,9 +16,9 @@ namespace DIploma_testRail.UnitTests.ApiTests
         [OneTimeSetUp]
         public void InitApiClient()
         {
-            // apiClient = new BaseApiClient("https://isthisnikita.testrail.io/index.php?/api/v2");
-            //  apiClient.AddToken("vd0SC5SATgakfaOApOYa-DJPIScT3dEp1AzUgVms5");
-        }
+            Console.WriteLine(Configuration.Api.Token);
+            apiClient = new BaseApiClient("https://isthisnikita.testrail.io");
 
+        }
     }
 }

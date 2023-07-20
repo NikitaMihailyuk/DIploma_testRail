@@ -10,11 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Core\TestData\ApiSetting.json" />
+    <None Remove="Core\Configuration\TestData\ApiSetting.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Core\TestData\ApiSetting.json">
+    <Content Include="Core\Configuration\TestData\ApiSetting.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

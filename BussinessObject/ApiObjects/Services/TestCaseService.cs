@@ -12,19 +12,19 @@ namespace DIploma_testRail.BussinessObject.ApiObjects.Services
     public class TestCaseService : BaseService
     {
         public string CaseEndpoint = "/case";
-        public string GetCaseByCodeEndpoint = "/get_runs/{code}";
+        public string GetCaseByCodeEndpoint = "/index.php?/api/v2/get_runs/{code}";
         public string GetCaseByCodeEndpointbulk = "/case/{code}/bulk";
         public string GetCaseByID = "/case/{code}/{id}";
 
 
-        public TestCaseService() : base("https://isthisnikita.testrail.io/index.php?/api/v2")
+        public TestCaseService() : base("https://isthisnikita.testrail.io")
         {
-            //     apiClient.AddToken("vd0SC5SATgakfaOApOYa-DJPIScT3dEp1AzUgVms5");
+            apiClient.AddToken("Basic SXN0aGlzbmlraXRhQGdtYWlsLmNvbTp2ZDBTQzVTQVRnYWtmYU9BcE9ZYS1ESlBJU2NUM2RFcDFBelVnVm1zNQ==");
         }
 
         public RestResponse GetAlltestCases(string caseCode)
         {
-            var request = new RestRequest(GetCaseByCodeEndpoint, Method.Get).AddUrlSegment("code", caseCode);
+            var request = new RestRequest(GetCaseByCodeEndpoint, Method.Get).AddUrlSegment("code", caseCode); ;
             request.AddBody(caseCode);
             return apiClient.Execute(request);
         }

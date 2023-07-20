@@ -29,6 +29,8 @@ namespace DIploma_testRail.UnitTests.ApiTests
 
             var response = caseService.GetAlltestCases(caseCode);
             Console.WriteLine(response.Content);
+            Console.WriteLine(response.ErrorException);
+            Console.WriteLine(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
         [Test]
