@@ -19,10 +19,9 @@ namespace DIploma_testRail.BussinessObject.ApiObjects.Services
 
         public TestCaseService() : base("https://isthisnikita.testrail.io")
         {
-            apiClient.AddToken("Basic SXN0aGlzbmlraXRhQGdtYWlsLmNvbTp2ZDBTQzVTQVRnYWtmYU9BcE9ZYS1ESlBJU2NUM2RFcDFBelVnVm1zNQ==");
         }
 
-        public RestResponse GetAlltestCases(string caseCode)
+        public RestResponse GetRuns(string caseCode)
         {
             var request = new RestRequest(GetCaseByCodeEndpoint, Method.Get).AddUrlSegment("code", caseCode); ;
             request.AddBody(caseCode);
@@ -72,6 +71,14 @@ namespace DIploma_testRail.BussinessObject.ApiObjects.Services
             var request = new RestRequest(GetCaseByCodeEndpointbulk, Method.Post).AddUrlSegment("code", caseCode);
             request = request.AddParameter("application/json", "{\"cases\":[{\"title\":\"" + title + "\"}]}", ParameterType.RequestBody);
             request.AddBody(caseCode);
+            return apiClient.Execute(request);
+        }
+
+        public RestResponse GetAlltestCasesinvalid(string caseCode)
+        {
+
+            apiClient.invalidAPItoken("https://isthisnikita.testrail.io");
+            var request = new RestRequest(GetCaseByCodeEndpoint, Method.Get).AddUrlSegment("code", caseCode); ;
             return apiClient.Execute(request);
         }
     }

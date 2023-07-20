@@ -17,8 +17,7 @@ namespace DIploma_testRail.UnitTests.ApiTests
         public void InitApiClient()
         {
             Console.WriteLine(Configuration.Api.Token);
-            apiClient = new BaseApiClient("https://isthisnikita.testrail.io");
-
+            apiClient = new BaseApiClient(Configuration.Api.BaseUrl);
         }
     }
 }

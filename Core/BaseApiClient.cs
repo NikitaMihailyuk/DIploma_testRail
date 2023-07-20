@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using NLog;
 using RestSharp.Authenticators;
+using Bogus;
+using System.Security.Policy;
 
 namespace DIploma_testRail.Core
 {
@@ -13,6 +15,7 @@ namespace DIploma_testRail.Core
     {
         private RestClient restClient;
         protected Logger logger = LogManager.GetCurrentClassLogger();
+        Faker faker = new Faker();
 
         public BaseApiClient(string url)
         {
@@ -21,16 +24,26 @@ namespace DIploma_testRail.Core
                 MaxTimeout = 10000,
                 ThrowOnAnyError = false,
                 Authenticator = new HttpBasicAuthenticator("Isthisnikita@gmail.com", "vd0SC5SATgakfaOApOYa-DJPIScT3dEp1AzUgVms5")
-        };
+             };
 
             restClient = new RestClient(option);
             restClient.AddDefaultHeader("Content-Type", "application/json");
-
-    }
-
+          
+           }
+        
         public void AddToken(string token)
         {
            // restClient.AddDefaultHeader("Authorization", "Basic SXN0aGlzbmlraXRhQGdtYWlsLmNvbTpJc3RoaXNuaWtpdGFAZ21haWwuY29tOnZkMFNDNVNBVGdha2ZhT0FwT1lhLURKUElTY1QzZEVwMUF6VWdWbXM1");
+        }
+        public void invalidAPItoken(string url)
+        {
+            var option = new RestClientOptions(url)
+            {
+                MaxTimeout = 10000,
+                ThrowOnAnyError = false,
+                Authenticator = new HttpBasicAuthenticator("Isthisnikita@gmail.com", faker.Internet.Password())
+            };
+            restClient = new RestClient(option);
         }
 
         public RestResponse Execute(RestRequest request)

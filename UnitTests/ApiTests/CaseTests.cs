@@ -2,6 +2,7 @@
 using DIploma_testRail.Core;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -23,16 +24,30 @@ namespace DIploma_testRail.UnitTests.ApiTests
         }
 
         [Test]
-        public void GetAlltestCases()
+        public void GetRuns()
         {
             var caseCode = "1";
 
-            var response = caseService.GetAlltestCases(caseCode);
+            var response = caseService.GetRuns(caseCode);
             Console.WriteLine(response.Content);
             Console.WriteLine(response.ErrorException);
             Console.WriteLine(response.StatusCode);
+            Console.WriteLine(Directory.GetCurrentDirectory() + "\\TestData");
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
+
+
+        [Test]
+        public void InvalidToken()
+        {
+
+            var response = caseService.GetAlltestCasesinvalid("1");
+            Console.WriteLine(response.Content);
+            Console.WriteLine(response.ErrorException);
+            Console.WriteLine(response.StatusCode);
+            Assert.That(response.StatusDescription, Is.EqualTo("Unauthorized"));
+        }
+
         [Test]
         public void DeleteTestCase()
         {
