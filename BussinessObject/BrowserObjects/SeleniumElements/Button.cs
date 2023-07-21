@@ -13,7 +13,7 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects.SeleniumElements
         {
         }
 
-        public Button(string value) : base($"//input[@name='{value}']")
+        public Button(string value) : base($"//a[@id='{value}']")
         {
         }
     }

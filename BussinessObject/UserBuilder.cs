@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bogus;
+using DIploma_testRail.BussinessObject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,56 @@ using System.Threading.Tasks;
 
 namespace DIploma_testRail.BussinessObject
 {
-    internal class UserBuilder
+    public class UserBuilder
     {
+        static Faker Faker = new();
+
+        public static UserModel GetStandartUser()
+        {
+            return new UserModel
+            {
+                Name = TestContext.Parameters.Get("StandartUserName"),
+                Password = TestContext.Parameters.Get("StandartUserPassword"),
+            };
+
+        }
+
+        public static UserModel GetSalesForceUser()
+        {
+            return new UserModel
+            {
+                Name = "isthisnikita@gmail.com",
+                Password = "AlanaAlana2",
+            };
+
+        }
+
+        public static UserModel GetStandartUserWithoutName()
+        {
+            return new UserModel
+            {
+                Name = " ",
+                Password = TestContext.Parameters.Get("StandartUserPassword"),
+            };
+
+        }
+
+        public static UserModel GetRandomUser()
+        {
+            return new UserModel
+            {
+                Name = Faker.Name.FullName(),
+                Password = Faker.Hacker.Verb(),
+            };
+
+        }
+
+        public static UserModel GetRandomUserWithPassword(string password) => new()
+        {
+            Name = Faker.Name.FullName(),
+            Password = password,
+        };
+
+
     }
 }

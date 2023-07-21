@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DIploma_testRail.Core.Configuration;
 
 namespace DIploma_testRail.Core.Configuration
 {
@@ -15,7 +16,7 @@ namespace DIploma_testRail.Core.Configuration
         {
             ChromeOptions options = new ChromeOptions();
 
-            if (AppConfiguration.Browser.Hedless) options.AddArgument("--headless");
+            if (Configuration.Browser.Hedless) options.AddArgument("--headless");
             options.AddArgument("--disable-gpu");
             options.AddArgument("incognito");
             options.AddArgument("--start-maximized");
