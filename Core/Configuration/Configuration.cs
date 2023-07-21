@@ -10,6 +10,7 @@ namespace DIploma_testRail.Core.Configuration
     public class Configuration
     {
         public static ApiConfiguration Api => BindConfiguration<ApiConfiguration>();
+        public static BrowserConfiguration Browser => BindConfiguration<BrowserConfiguration>();
         private static IConfigurationRoot configurationRoot;
 
         static Configuration()

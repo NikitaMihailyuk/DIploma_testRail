@@ -1,4 +1,4 @@
-﻿using DIploma_testRail.BussinessObject.ApiObjects.Models;
+﻿using DIploma_testRail.BussinessObject.Models;
 using DIploma_testRail.Core;
 using RestSharp;
 using System;

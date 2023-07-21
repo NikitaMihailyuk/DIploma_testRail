@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using DIploma_testRail.BussinessObject.ApiObjects.Services;
-using DIploma_testRail.BussinessObject.ApiObjects.Models;
+using DIploma_testRail.BussinessObject.Models;
 
 namespace DIploma_testRail.BussinessObject.ApiObjects.ApiServiceSteps
 {
