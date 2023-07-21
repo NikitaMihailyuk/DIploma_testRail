@@ -15,7 +15,6 @@ namespace DIploma_testRail.Core
         public BaseService(string url)
         {
             this.apiClient = new BaseApiClient(url);
-           // apiClient.AddToken(Configuration.Configuration.Api.Token);
 
         }
     }

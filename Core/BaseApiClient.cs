@@ -23,7 +23,7 @@ namespace DIploma_testRail.Core
             {
                 MaxTimeout = 10000,
                 ThrowOnAnyError = false,
-                Authenticator = new HttpBasicAuthenticator("Isthisnikita@gmail.com", "vd0SC5SATgakfaOApOYa-DJPIScT3dEp1AzUgVms5")
+                Authenticator = new HttpBasicAuthenticator("Isthisnikita@gmail.com", Configuration.Configuration.Api.Token)
              };
 
             restClient = new RestClient(option);

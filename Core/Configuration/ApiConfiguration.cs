@@ -11,7 +11,6 @@ namespace DIploma_testRail.Core.Configuration
     {
         public string SectionName => "Api";
         public string BaseUrl { get; set; }
-
         public string Token { get; set; }
     }
 }

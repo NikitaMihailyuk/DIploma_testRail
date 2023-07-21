@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DIploma_testRail.Core;
 using RestSharp;
+using DIploma_testRail.Core.Configuration;
 
 namespace DIploma_testRail.BussinessObject.ApiObjects.Services
 {
@@ -17,7 +18,7 @@ namespace DIploma_testRail.BussinessObject.ApiObjects.Services
         public string GetCaseByID = "/case/{code}/{id}";
 
 
-        public TestCaseService() : base("https://isthisnikita.testrail.io")
+        public TestCaseService() : base(Configuration.Api.BaseUrl)
         {
         }
 

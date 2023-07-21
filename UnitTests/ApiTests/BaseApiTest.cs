@@ -16,7 +16,6 @@ namespace DIploma_testRail.UnitTests.ApiTests
         [OneTimeSetUp]
         public void InitApiClient()
         {
-            Console.WriteLine(Configuration.Api.Token);
             apiClient = new BaseApiClient(Configuration.Api.BaseUrl);
         }
     }

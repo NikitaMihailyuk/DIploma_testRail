@@ -11,14 +11,13 @@ namespace DIploma_testRail.Core.Configuration
     {
         public static ApiConfiguration Api => BindConfiguration<ApiConfiguration>();
         private static IConfigurationRoot configurationRoot;
-        private static string configPath = Directory.GetCurrentDirectory() + "\\TestData\\ApiSetting.json";
 
         static Configuration()
         {
 
             configurationRoot = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile(configPath, optional: true, reloadOnChange: true)
+                .AddJsonFile("ApiSetting.json", optional: true, reloadOnChange: true)
                 .Build();         
         }
 
