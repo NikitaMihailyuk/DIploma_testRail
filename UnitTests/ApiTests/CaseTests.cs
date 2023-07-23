@@ -1,5 +1,5 @@
-﻿using DIploma_testRail.BussinessObject.ApiObjects.Services;
-using DIploma_testRail.Core;
+﻿using BussinessObject.ApiObjects.Services;
+using Core;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,7 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.UnitTests.ApiTests
+namespace UnitTests.ApiTests
 {
 
     internal class CaseTests : BaseApiTest

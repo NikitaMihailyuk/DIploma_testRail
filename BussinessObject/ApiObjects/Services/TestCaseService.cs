@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DIploma_testRail.Core;
+using Core;
 using RestSharp;
-using DIploma_testRail.Core.Configuration;
+using Core.Configuration;
 
-namespace DIploma_testRail.BussinessObject.ApiObjects.Services
+namespace BussinessObject.ApiObjects.Services
 {
     public class TestCaseService : BaseService
     {
@@ -16,8 +16,34 @@ namespace DIploma_testRail.BussinessObject.ApiObjects.Services
         public string GetCaseByCodeEndpoint = "/index.php?/api/v2/get_runs/{code}";
         public string GetCaseByCodeEndpointbulk = "/case/{code}/bulk";
         public string GetCaseByID = "/case/{code}/{id}";
+        //https://support.testrail.com/hc/en-us/articles/15758177606676-API-uses-cases-intro
+
+        // index.php?/api/v2/get_project/10
+        //Suite
+        //Sections
+        //Cases
+        //Runs
+        //Plans
+        /*
+          
+         
+Case fields	GET index.php?/api/v2/get_case_fields
+Case templates	GET index.php?/api/v2/get_templates/{project_id}
+Case priorities	GET index.php?/api/v2/get_priorities
+Case types	GET index.php?/api/v2/get_case_types
+Case statuses	GET index.php?/api/v2/get_case_statuses
 
 
+  "https://example.testrail.io/index.php?/api/v2/add_case/432"
+        GET index.php?/api/v2/get_history_for_case/{case_id}
+       POST index.php?/api/v2/copy_cases_to_section/{section_id}
+        POST index.php?/api/v2/update_case/{case_id}
+        POST index.php?/api/v2/delete_case/{case_id}
+
+
+
+
+         */
         public TestCaseService() : base(Configuration.Api.BaseUrl)
         {
         }

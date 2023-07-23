@@ -1,12 +1,12 @@
-﻿using DIploma_testRail.Core;
+﻿using Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DIploma_testRail.Core.Configuration;
+using Core.Configuration;
 
-namespace DIploma_testRail.UnitTests.ApiTests
+namespace UnitTests.ApiTests
 {
     internal class BaseApiTest
     {

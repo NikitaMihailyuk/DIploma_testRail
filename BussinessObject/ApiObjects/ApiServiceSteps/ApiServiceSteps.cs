@@ -5,10 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using DIploma_testRail.BussinessObject.ApiObjects.Services;
-using DIploma_testRail.BussinessObject.ApiObjects.Models;
+using BussinessObject.ApiObjects.Services;
+using Core.Models;
 
-namespace DIploma_testRail.BussinessObject.ApiObjects.ApiServiceSteps
+namespace BussinessObject.ApiObjects.ApiServiceSteps
 {
     internal class ApiProjectSteps : ProjectService
     {
