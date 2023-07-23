@@ -13,15 +13,6 @@ namespace DIploma_testRail.BussinessObject
     {
         static Faker Faker = new();
 
-        public static UserModel GetStandartUser()
-        {
-            return new UserModel
-            {
-                Name = TestContext.Parameters.Get("StandartUserName"),
-                Password = TestContext.Parameters.Get("StandartUserPassword"),
-            };
-
-        }
 
         public static UserModel GetTestRailUser()
         {

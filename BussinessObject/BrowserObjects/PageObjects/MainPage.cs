@@ -18,7 +18,9 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
         private string startPage = "https://isthisnikita2.testrail.io/";
 
 
-        private Button CreateProjectButton = new("sidebar-projects-add");
+        private Button createProjectButton = new("sidebar-projects-add");
+        private Button deleteProjectButton = new("Delete");
+        private Button editeProjectButton = new(By.XPath("//*[text()='Edit']"));
 
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -31,18 +33,25 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
             return this;
         }
         [AllureStep]
-        public ProjectPage CreateProject()
+        public ProjectPage OpenNewProjectPage()
         {
-            CreateProjectButton.GetElement().Click();
-
+            createProjectButton.GetElement().Click();
+            return new ProjectPage();
+        }
+        public ProjectPage OpenEditProjectPage()
+        {
+            Browser.Instance.Driver.FindElement(By.XPath("//*[@id='project-3']//span/following-sibling::a")).Click();
+            editeProjectButton.GetElement().Click();
             return new ProjectPage();
         }
 
-        public NewAccountModal OpenNewAccountModal()
+        public MainPage DeleteProject()
         {
-            Browser.Instance.NavigateToUrl("https://d06000000zfpfeau-dev-ed.develop.lightning.force.com/lightning/o/Account/list?filterName=Recent");
-            new Button(By.XPath("//div[@title='New']")).GetElement().Click();
-            return new NewAccountModal();
+            Browser.Instance.NavigateToUrl("https://isthisnikita2.testrail.io/index.php?/admin/projects/overview"); 
+            Browser.Instance.Driver.FindElement(By.XPath("//tr[@class=\"even hoverSensitive\"]/following-sibling::tr[last()]//div[@class='icon-small-delete']")).Click();
+            Browser.Instance.Driver.FindElement(By.XPath("//*[@id='deleteDialog']//input")).Click();
+            Browser.Instance.Driver.FindElement(By.XPath("//*[@id='deleteDialog']//a")).Click();
+            return new MainPage();
         }
     }
 }
@@ -58,7 +67,9 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
           return new NewContactModal();
       }
 
-   public EditContactModal OpenExistingContactModal()
+       /////*[@id="project-2"]//span/following-sibling::a
+        ///
+    public EditContactModal OpenExistingContactModal()
       {
           Browser.Instance.NavigateToUrl("https://d06000000zfpfeau-dev-ed.develop.lightning.force.com/lightning/o/Contact/list?filterName=Recent");
           var contactTab = Browser.Instance.Driver.FindElement(By.XPath("//*[@data-id='Contact']//span"));
