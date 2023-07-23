@@ -21,6 +21,7 @@ namespace BussinessObject.BrowserObjects.PageObjects
         private Button createProjectButton = new("sidebar-projects-add");
         private Button deleteProjectButton = new("Delete");
         private Button editeProjectButton = new(By.XPath("//*[text()='Edit']"));
+        private Button testCaseButton = new("navigation-suites"); 
 
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -38,13 +39,14 @@ namespace BussinessObject.BrowserObjects.PageObjects
             createProjectButton.GetElement().Click();
             return new ProjectPage();
         }
+        [AllureStep]
         public ProjectPage OpenEditProjectPage()
         {
             Browser.Instance.Driver.FindElement(By.XPath("//*[@id='project-3']//span/following-sibling::a")).Click();
             editeProjectButton.GetElement().Click();
             return new ProjectPage();
         }
-
+        [AllureStep]
         public MainPage DeleteProject()
         {
             Browser.Instance.NavigateToUrl("https://isthisnikita2.testrail.io/index.php?/admin/projects/overview"); 
@@ -53,60 +55,12 @@ namespace BussinessObject.BrowserObjects.PageObjects
             Browser.Instance.Driver.FindElement(By.XPath("//*[@id='deleteDialog']//a")).Click();
             return new MainPage();
         }
+        [AllureStep]
+        public TestCasePage OpenTestCasePage()
+        {
+            Browser.Instance.Driver.FindElement(By.XPath("//*[@id='project-3']//span/following-sibling::a")).Click();
+            testCaseButton.GetElement().Click(); 
+            return new TestCasePage();
+        }
     }
 }
-
-/*   public NewContactModal OpenNewContactModal()
-      {
-          Browser.Instance.NavigateToUrl("https://d06000000zfpfeau-dev-ed.develop.lightning.force.com/lightning/o/Contact/list?filterName=Recent");
-          var contactTab = Browser.Instance.Driver.FindElement(By.XPath("//*[@data-id='Contact']//span"));
-
-          ContactTab.ClickElementViaJs();
-          new Button(By.XPath("//div[@title='New']")).GetElement().Click();
-
-          return new NewContactModal();
-      }
-
-       /////*[@id="project-2"]//span/following-sibling::a
-        ///
-    public EditContactModal OpenExistingContactModal()
-      {
-          Browser.Instance.NavigateToUrl("https://d06000000zfpfeau-dev-ed.develop.lightning.force.com/lightning/o/Contact/list?filterName=Recent");
-          var contactTab = Browser.Instance.Driver.FindElement(By.XPath("//*[@data-id='Contact']//span"));
-          DropDownMainPage DropDownNumber = new("1");
-          logger.Warn("warn");
-          logger.Debug("debug");
-          logger.Error("-error");
-          logger.Fatal("Fatal");
-          DropDownNumber.Select("Edit");
-          return new EditContactModal();
-      }
-
-      public void DeleteContact()
-      {
-          Browser.Instance.NavigateToUrl("https://d06000000zfpfeau-dev-ed.develop.lightning.force.com/lightning/o/Contact/list?filterName=Recent");
-          var contactTab = Browser.Instance.Driver.FindElement(By.XPath("//*[@data-id='Contact']//span"));
-          DropDownMainPage DropDownNumber = new("1");
-          DropDownNumber.Select("Delete");
-          new Button(By.XPath("//*[@title='Delete']")).GetElement().Click();
-
-      }
-
-      [AllureStep]
-      public EditAccountModal OpenExistingAccountModal()
-      {
-          Browser.Instance.NavigateToUrl("https://d06000000zfpfeau-dev-ed.develop.lightning.force.com/lightning/o/Account/list?filterName=Recent");
-          var contactTab = Browser.Instance.Driver.FindElement(By.XPath("//*[@data-id='Account']//span"));
-          DropDownMainPage DropDownNumber = new("1");
-          DropDownNumber.Select("Edit");
-          return new EditAccountModal();
-      }
-      [AllureStep]
-      public void DeleteAccount()
-      {
-          Browser.Instance.NavigateToUrl("https://d06000000zfpfeau-dev-ed.develop.lightning.force.com/lightning/o/Account/list?filterName=Recent");
-          var contactTab = Browser.Instance.Driver.FindElement(By.XPath("//*[@data-id='Account']//span"));
-          DropDownMainPage DropDownNumber = new("1");
-          DropDownNumber.Select("Delete");
-          new Button(By.XPath("//*[@title='Delete']")).GetElement().Click();
-      } */

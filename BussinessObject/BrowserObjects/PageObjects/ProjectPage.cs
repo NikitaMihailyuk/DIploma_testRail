@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Allure.Attributes;
+using NLog;
 
 namespace BussinessObject.BrowserObjects.PageObjects
 {
@@ -18,10 +20,14 @@ namespace BussinessObject.BrowserObjects.PageObjects
         Button saveButton = new("accept");
 
         ProjectBuilder projectBuilder = new ProjectBuilder();
-        public ProjectPage CreateProject(UserModel user)
+
+        [AllureStep]
+        public ProjectPage CreateProject()
         {
             return this;
         }
+
+        [AllureStep]
         public ProjectPage CreateProjectType1()
         {
             CreateProjectModel dataProject = projectBuilder.CreateProject();
@@ -32,7 +38,7 @@ namespace BussinessObject.BrowserObjects.PageObjects
             return this;
         }
 
-
+        [AllureStep]
         public ProjectPage EditProject()
         {
             CreateProjectModel dataProject = projectBuilder.CreateProject();

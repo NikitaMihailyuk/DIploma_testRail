@@ -106,14 +106,22 @@ namespace UnitTests.UiTests
         }
         #endregion Project 
         #region Tests
+
+        [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
         public void CreateTestCase()
         {
-            var user = UserBuilder.GetRandomUser();
+            var user = UserBuilder.GetTestRailUser();
             new LoginPage()
                 .OpenPage()
-                .Login(user);
+                .Login(user).OpenTestCasePage().CreateTestCase();
 
-            browserAssertHelper.LoginErrorAssert();
+            browserAssertHelper.CreateNewTestCaseAssert();
         }
 
 

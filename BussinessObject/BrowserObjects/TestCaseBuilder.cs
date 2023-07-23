@@ -23,7 +23,9 @@ namespace BussinessObject.BrowserObjects
                 Template_id= 1,
                 Priority_id = 1,
                 Estimate = "60m",
-                Custom_steps_separated = new Custom_steps_separated { Content = Faker.Lorem.Text(), Expected = Faker.Lorem.Text() }
+                Custom_preconds = Faker.Lorem.Text(),
+                Custom_steps_separated = new Custom_steps_separated { Content = Faker.Lorem.Text(), Expected = Faker.Lorem.Text() },
+                Custom_expected = Faker.Lorem.Text()
             };
         }
     }
