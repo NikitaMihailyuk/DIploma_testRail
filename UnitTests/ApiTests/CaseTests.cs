@@ -43,7 +43,6 @@ namespace UnitTests.ApiTests
         {
             var offset = 1;
 
-
             var response = caseService.GetAlltestRunsinvalid(offset);
             Console.WriteLine(response.Content);
             Console.WriteLine(response.ErrorException);
@@ -58,7 +57,6 @@ namespace UnitTests.ApiTests
 
             var response = caseService.GetTestCase(testId);
             Console.WriteLine(response.Content);
-            Console.WriteLine(response.ErrorException);
             Console.WriteLine(response.StatusCode);
             TestCase? testData = JsonConvert.DeserializeObject<TestCase>(response.Content);
             Assert.AreEqual(testId, testData.Id);
@@ -71,9 +69,7 @@ namespace UnitTests.ApiTests
            
 
             var response = caseService.CreateTestCase(section_id);
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.ErrorException);
-            Console.WriteLine(response.StatusCode);
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
 
@@ -85,8 +81,8 @@ namespace UnitTests.ApiTests
             int testCaseID = 2271;
             var response = caseService.DeleteTestCase(testCaseID);
             Console.WriteLine(response.Content);
-            Console.WriteLine(response.ErrorException);
             Console.WriteLine(response.StatusCode);
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
         [Test]
         public void UpdateTestCase()
@@ -94,8 +90,8 @@ namespace UnitTests.ApiTests
             int testCaseID = 2271;
             var response = caseService.UpdateTestCase(testCaseID);
             Console.WriteLine(response.Content);
-            Console.WriteLine(response.ErrorException);
             Console.WriteLine(response.StatusCode);
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
     }
 }

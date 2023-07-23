@@ -5,17 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Configuration;
+using NUnit.Allure.Core;
+using Allure.Commons;
 
 namespace UnitTests.ApiTests
 {
+    [AllureNUnit]
+    [Parallelizable(ParallelScope.All)]
     internal class BaseApiTest
     {
-
+        private AllureLifecycle allure;
         protected BaseApiClient apiClient;
 
         [OneTimeSetUp]
         public void InitApiClient()
         {
+            allure = AllureLifecycle.Instance;
             apiClient = new BaseApiClient(Configuration.Api.BaseUrl);
         }
     }

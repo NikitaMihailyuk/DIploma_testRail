@@ -9,6 +9,8 @@ using RestSharp;
 using Core.Configuration;
 using BussinessObject.BrowserObjects;
 using NUnit.Framework.Interfaces;
+using NUnit.Allure.Attributes;
+using NLog;
 
 namespace BussinessObject.ApiObjects.Services
 {
@@ -21,9 +23,7 @@ namespace BussinessObject.ApiObjects.Services
         public string CreateTestCaseEndPoint = "index.php?/api/v2/add_case/{section_id}";
         public string UpdateTestCaseEndPoint = "index.php?/api/v2/update_case/{case_id}";
         public string DeleteTestCaseEndpoint = "index.php?/api/v2/delete_case/{case_id}&soft=1";
-      /// <summary>
-      ///  POST index.php?/api/v2/add_case/{ section_id}
-      /// </summary>
+
         //https://support.testrail.com/hc/en-us/articles/15758177606676-API-uses-cases-intro
         /*     
 Case fields	GET index.php?/api/v2/get_case_fields
@@ -38,6 +38,8 @@ Case statuses	GET index.php?/api/v2/get_case_statuses
         }
 
         TestCaseBuilder testCaseBuilder = new TestCaseBuilder();
+
+        [AllureStep]
         public RestResponse GetRuns(int offset)
         {
             var request = new RestRequest(GetRunsByCodeEndpoint, Method.Get).AddUrlSegment("code", offset); ;
@@ -45,32 +47,36 @@ Case statuses	GET index.php?/api/v2/get_case_statuses
             return apiClient.Execute(request);
         }
 
+        [AllureStep]
         public RestResponse GetAlltestRunsinvalid(int offset)
         {
-
             apiClient.invalidAPItoken(Configuration.Api.BaseUrl);
             var request = new RestRequest(GetRunsByCodeEndpoint, Method.Get).AddUrlSegment("code", offset); ;
             return apiClient.Execute(request);
         }
 
+        [AllureStep]
         public RestResponse GetTestCase(int idTestCase)
         {
             var request = new RestRequest(GetTestCaseEndpoint, Method.Get).AddUrlSegment("case_id", idTestCase); ;
             return apiClient.Execute(request);
         }
+
+        [AllureStep]
         public RestResponse GetTestCaseFields(int idTestCase)
         {
-
             var request = new RestRequest(GetTestCaseFieldsEndpoint, Method.Get).AddUrlSegment("case_id", idTestCase); ;
             return apiClient.Execute(request);
         }
 
+        [AllureStep]
         public RestResponse DeleteTestCase(int idTestCase)
         {
             var request = new RestRequest(GetTestCaseEndpoint, Method.Get).AddUrlSegment("case_id", idTestCase); ;
             return apiClient.Execute(request);
         }
 
+        [AllureStep]
         public RestResponse CreateTestCase(int section_id)
         {
             var request = new RestRequest(CreateTestCaseEndPoint, Method.Post).AddUrlSegment("section_id", section_id);
@@ -79,6 +85,8 @@ Case statuses	GET index.php?/api/v2/get_case_statuses
 
             return apiClient.Execute(request);
         }
+
+        [AllureStep]
         public RestResponse UpdateTestCase(int case_id)
         {
             var request = new RestRequest(UpdateTestCaseEndPoint, Method.Post).AddUrlSegment("case_id", case_id);

@@ -43,6 +43,13 @@ namespace BussinessObject.BrowserObjects
             string message = WebDriver.FindElement(By.XPath("//*[@class='message message-success']")).Text;
             Assert.AreEqual(succesMessage, message);
         }
-        
+
+        public void CreateNewTestCaseAssert()
+        {
+            string succesMessage = "Successfully added the new test case.";
+            string message = WebDriver.FindElement(By.XPath("//*[@class='message message-success']")).Text;
+            Assert.AreEqual(succesMessage, message);
+        }
+
     }
 }
