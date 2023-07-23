@@ -7,22 +7,15 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="ApiSetting.json" />
-    <None Remove="Core\Configuration\ApiSetting.json" />
-    <None Remove="Core\Configuration\TestData\ApiSetting.json" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="ApiSetting.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Core\Configuration\ApiSetting.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Core\Configuration\TestData\ApiSetting.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -44,6 +37,10 @@
     <PackageReference Include="RestSharp" Version="110.2.0" />
     <PackageReference Include="Selenium.Support" Version="4.10.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="115.0.5790.10200" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestProject1\TestProject1.csproj" />
   </ItemGroup>
 
 </Project>
