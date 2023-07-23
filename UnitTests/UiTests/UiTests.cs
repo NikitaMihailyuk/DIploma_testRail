@@ -18,11 +18,9 @@ namespace DIploma_testRail.UnitTests.UiTests
         [AllureTag("Smoke")]
         [Description("Detailed Description")]
         [AllureOwner("Nikita")]
-        [AllureSuite("Sales Force")]
-        [AllureSubSuite("Sales Force - failed")]
-        [AllureTms("TMS-16")]
-        [AllureIssue("JIRA-14")]
-        [AllureLink("https://google.com")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-negative")]
+
         public void ErrorLogin()
         {
             var user = UserBuilder.GetRandomUser();
@@ -34,6 +32,12 @@ namespace DIploma_testRail.UnitTests.UiTests
         }
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
         public void GoodLogin()
         {
             var user = UserBuilder.GetTestRailUser();
@@ -45,39 +49,60 @@ namespace DIploma_testRail.UnitTests.UiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
         public void CreateProject()
         {
             var user = UserBuilder.GetTestRailUser();
 
             new LoginPage()
                 .OpenPage()
-                .Login(user).CreateProject();
-
+                .Login(user).
+                OpenNewProjectPage().
+                CreateProjectType1();
+            browserAssertHelper.CreateNewProjectAssert();
         }
 
         [Test]
-        public void CreateContact()
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        public void EditProject()
+        {
+            var user = UserBuilder.GetTestRailUser();
+
+            new LoginPage()
+                .OpenPage().
+                Login(user).
+                OpenEditProjectPage().EditProject();
+
+            browserAssertHelper.EditProjectAssert();
+        }
+        [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        public void DeleteProject()
         {
             var user = UserBuilder.GetTestRailUser();
 
             new LoginPage()
                 .OpenPage()
-                .Login(user);
-             //   .OpenNewContactModal()
-               // .CreateContact(user.Name, "Customer");
+                .Login(user)
+                .DeleteProject();
+
+            browserAssertHelper.DeleteProjectAssert();
         }
 
-
-        [Test]
-        public void EditContact()
-        {
-            var user = UserBuilder.GetTestRailUser();
-
-            new LoginPage()
-                .OpenPage();
-            //    .Login(user).OpenExistingContactModal()
-            //    .EditContact(user.Name, "Customer");
-        }
-  
     }
 }

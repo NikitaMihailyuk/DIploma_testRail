@@ -1,4 +1,5 @@
-﻿using DIploma_testRail.Core;
+﻿using DIploma_testRail.BussinessObject.Models;
+using DIploma_testRail.Core;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -21,5 +22,27 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects
             Assert.AreEqual(errorTopString, errorTop);
             Assert.AreEqual(errorString, errorText);
         }
+
+        public void EditProjectAssert()
+        {
+            string succesMessage = "Successfully updated the project.";
+            string message = WebDriver.FindElement(By.XPath("//*[@class='message message-success']")).Text;
+            Assert.AreEqual(succesMessage, message);
+        }
+
+        public void CreateNewProjectAssert()
+        {
+            string succesMessage = "Successfully added the new project.";
+            string message = WebDriver.FindElement(By.XPath("//*[@class='message message-success']")).Text;
+            Assert.AreEqual(succesMessage, message);
+        }
+
+        public void DeleteProjectAssert()
+        {
+            string succesMessage = "Successfully deleted the project.";
+            string message = WebDriver.FindElement(By.XPath("//*[@class='message message-success']")).Text;
+            Assert.AreEqual(succesMessage, message);
+        }
+        
     }
 }
