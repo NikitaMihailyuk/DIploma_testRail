@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DIploma_testRail.Core.Configuration;
 
 namespace DIploma_testRail.BussinessObject
 {
@@ -22,14 +23,13 @@ namespace DIploma_testRail.BussinessObject
 
         }
 
-        public static UserModel GetSalesForceUser()
+        public static UserModel GetTestRailUser()
         {
             return new UserModel
             {
-                Name = "isthisnikita@gmail.com",
-                Password = "AlanaAlana2",
+                Name = Configuration.Browser.ListOfUsers[0].Name,
+                Password = Configuration.Browser.ListOfUsers[0].Password
             };
-
         }
 
         public static UserModel GetStandartUserWithoutName()
@@ -46,8 +46,8 @@ namespace DIploma_testRail.BussinessObject
         {
             return new UserModel
             {
-                Name = Faker.Name.FullName(),
-                Password = Faker.Hacker.Verb(),
+                Name = Faker.Internet.Email(),
+                Password = Faker.Internet.Password(),
             };
 
         }

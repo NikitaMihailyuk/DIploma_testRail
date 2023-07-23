@@ -19,6 +19,7 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
 
         public ProjectPage CreateProject(UserModel user)
         {
+
             return this;
         }
     }

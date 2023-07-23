@@ -1,6 +1,11 @@
 {
   "Api": {
-    "BaseUrl": "https://isthisnikita.testrail.io/index.php?/api/v2",
+    "BaseUrl": "https://isthisnikita2.testrail.io",
     "Token": "vd0SC5SATgakfaOApOYa-DJPIScT3dEp1AzUgVms5"
+  },
+  "Browser": {
+    "Hedless": "true",
+    "Type": "Chrome",
+    "TimeOut": 10
   }
 }

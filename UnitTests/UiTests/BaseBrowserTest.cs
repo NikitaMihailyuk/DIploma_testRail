@@ -8,14 +8,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DIploma_testRail.BussinessObject.BrowserObjects;
 
 namespace DIploma_testRail.UnitTests.UiTests
 {
     [AllureNUnit]
     [Parallelizable(ParallelScope.All)]
-    public class BaseTest
+    public class BaseBrowserTest
     {
         private AllureLifecycle allure;
+        public BrowserAssertHelper browserAssertHelper = new BrowserAssertHelper();
 
         [OneTimeSetUp]
         public void SetUp()

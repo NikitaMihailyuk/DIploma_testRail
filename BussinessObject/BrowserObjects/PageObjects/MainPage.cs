@@ -16,12 +16,10 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
     public class MainPage
     {
         private string startPage = "https://isthisnikita2.testrail.io/";
-        private Input userNameInput = new(By.XPath("//input[@name='username']"));
-        private Input passwordInput = new(By.XPath("//input[@name='pw']"));
+
 
         private Button CreateProjectButton = new("sidebar-projects-add");
 
-        private Button ContactTab = new(By.XPath("//*[@data-id='Contact']//span"));
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -33,7 +31,7 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
             return this;
         }
         [AllureStep]
-        public ProjectPage CreateProject(UserModel user)
+        public ProjectPage CreateProject()
         {
             CreateProjectButton.GetElement().Click();
 

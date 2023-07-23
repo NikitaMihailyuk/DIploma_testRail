@@ -13,7 +13,7 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects.SeleniumElements
         {
         }
 
-        public Input(string name) : base($"//label[text()='{name}']/following-sibling::div/input")
+        public Input(string value) : base($"//*[@id='{value}']")
         {
         }
     }

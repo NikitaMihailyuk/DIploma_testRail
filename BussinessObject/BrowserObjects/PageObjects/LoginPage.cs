@@ -20,6 +20,7 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
         private Input userNameInput = new("name");
         private Input passwordInput = new("password");
         private Button loginButton = new("button_primary");
+        private Button checkBoxButton = new(By.XPath("//*[@id='rememberme']/following-sibling::span"));
 
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -33,14 +34,14 @@ namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
             return this;
         }
         [AllureStep]
-        public LoginPage Login(UserModel user)
+        public MainPage Login(UserModel user)
         {
             userNameInput.GetElement().SendKeys(user.Name);
             passwordInput.GetElement().SendKeys(user.Password);
+            checkBoxButton.GetElement().Click();
             loginButton.GetElement().Click();
             logger.Info($" try to login user: {user.Name}");
-            return this;
-        }
-   
+            return new MainPage();
+        } 
     }
 }

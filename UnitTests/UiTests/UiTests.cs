@@ -7,10 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DIploma_testRail.BussinessObject.BrowserObjects;
 
 namespace DIploma_testRail.UnitTests.UiTests
 {
-    public class SalesForceTests : BaseTest
+    public class SalesForceTests : BaseBrowserTest
     {
         [Test(Description = "Failed coz random")]
         [AllureSeverity(SeverityLevel.normal)]
@@ -25,17 +26,17 @@ namespace DIploma_testRail.UnitTests.UiTests
         public void ErrorLogin()
         {
             var user = UserBuilder.GetRandomUser();
-
             new LoginPage()
                 .OpenPage()
                 .Login(user);
-              ///  .OpenNewAccountModal();
+
+          browserAssertHelper.LoginErrorAssert();
         }
 
         [Test]
         public void GoodLogin()
         {
-            var user = UserBuilder.GetSalesForceUser();
+            var user = UserBuilder.GetTestRailUser();
 
             new LoginPage()
                 .OpenPage()
@@ -43,23 +44,21 @@ namespace DIploma_testRail.UnitTests.UiTests
         }
 
 
-
         [Test]
-        public void CreateAccount()
+        public void CreateProject()
         {
-            var user = UserBuilder.GetSalesForceUser();
+            var user = UserBuilder.GetTestRailUser();
 
             new LoginPage()
                 .OpenPage()
-                .Login(user);
-              //  .OpenNewAccountModal()
-           //     .CreateAccount(user.Name, "Customer");
+                .Login(user).CreateProject();
+
         }
 
         [Test]
         public void CreateContact()
         {
-            var user = UserBuilder.GetSalesForceUser();
+            var user = UserBuilder.GetTestRailUser();
 
             new LoginPage()
                 .OpenPage()
@@ -72,7 +71,7 @@ namespace DIploma_testRail.UnitTests.UiTests
         [Test]
         public void EditContact()
         {
-            var user = UserBuilder.GetSalesForceUser();
+            var user = UserBuilder.GetTestRailUser();
 
             new LoginPage()
                 .OpenPage();

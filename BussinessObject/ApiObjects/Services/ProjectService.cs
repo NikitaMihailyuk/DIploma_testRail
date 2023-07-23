@@ -15,6 +15,22 @@ namespace DIploma_testRail.BussinessObject.ApiObjects.Services
         public string GetProjectByCodeEndpoint = "/project/{code}";
         public string ProjectAcces = "/project/{code}/access";
 
+        /*
+        GET index.php?/api/v2/get_project/{project_id}
+        GET index.php?/api/v2/get_projects
+        POST index.php?/api/v2/add_project
+
+            "name": "Project X",
+    "announcement": "Welcome to project X",
+    "show_announcement": true
+        suite_mode he suite mode of the project (1 for single suite mode, 2 for single suite + baselines, 3 for multiple suites)
+}
+
+
+        POST index.php?/api/v2/update_project/{project_id
+        POST index.php?/api/v2/delete_project/{project_id}
+        */
+
 
         public ProjectService() : base("https://api.qase.io/v1")
         {
