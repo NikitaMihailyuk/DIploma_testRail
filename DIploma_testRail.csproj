@@ -39,8 +39,4 @@
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="115.0.5790.10200" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TestProject1\TestProject1.csproj" />
-  </ItemGroup>
-
 </Project>
