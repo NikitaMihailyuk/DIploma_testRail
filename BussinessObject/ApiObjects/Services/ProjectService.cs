@@ -43,17 +43,17 @@ namespace BussinessObject.ApiObjects.Services
             return apiClient.Execute(request);
         }
 
-        public RestResponse CreateProject(CreateProjectModel project)
+     /*   public RestResponse CreateProject(CreateProjectModel project)
         {
             var request = new RestRequest(ProjectEndpoint, Method.Post);
             request.AddBody(project);
             return apiClient.Execute(request);
         }
 
-        public Project GetProjectByCode<ProjectType>(string code) where ProjectType : Project
+        public CreateProjectModel GetProjectByCode<ProjectType>(string code) where ProjectType : Project
         {
             var request = new RestRequest(GetProjectByCodeEndpoint).AddUrlSegment("code", code);
-            return apiClient.Execute<CommonResultResponse<Project>>(request).Result;
+            return apiClient.Execute<CommonResultResponse<CreateProjectModel>>(request).Result;
         }
 
         public RestResponse GetAllProjects(int limit, int offset)
@@ -84,5 +84,6 @@ namespace BussinessObject.ApiObjects.Services
             Console.WriteLine(request);
             return apiClient.Execute(request);
         }
+     */
     }
 }

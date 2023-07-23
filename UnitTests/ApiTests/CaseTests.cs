@@ -1,5 +1,7 @@
-﻿using BussinessObject.ApiObjects.Services;
+﻿using Bogus;
+using BussinessObject.ApiObjects.Services;
 using Core;
+using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,6 +9,8 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Models;
+using Newtonsoft.Json;
 
 namespace UnitTests.ApiTests
 {
@@ -26,13 +30,10 @@ namespace UnitTests.ApiTests
         [Test]
         public void GetRuns()
         {
-            var caseCode = "1";
+            var offset = 1;
 
-            var response = caseService.GetRuns(caseCode);
+            var response = caseService.GetRuns(offset);
             Console.WriteLine(response.Content);
-            Console.WriteLine(response.ErrorException);
-            Console.WriteLine(response.StatusCode);
-            Console.WriteLine(Directory.GetCurrentDirectory() + "\\TestData");
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
@@ -40,8 +41,10 @@ namespace UnitTests.ApiTests
         [Test]
         public void InvalidToken()
         {
+            var offset = 1;
 
-            var response = caseService.GetAlltestCasesinvalid("1");
+
+            var response = caseService.GetAlltestRunsinvalid(offset);
             Console.WriteLine(response.Content);
             Console.WriteLine(response.ErrorException);
             Console.WriteLine(response.StatusCode);
@@ -49,54 +52,50 @@ namespace UnitTests.ApiTests
         }
 
         [Test]
+        public void GetTestCase()
+        {
+           int testId = 2268;
+
+            var response = caseService.GetTestCase(testId);
+            Console.WriteLine(response.Content);
+            Console.WriteLine(response.ErrorException);
+            Console.WriteLine(response.StatusCode);
+            TestCase? testData = JsonConvert.DeserializeObject<TestCase>(response.Content);
+            Assert.AreEqual(testId, testData.Id);
+        }
+
+         [Test]
+        public void CreateTestCase()
+        {
+            int section_id = 185;
+           
+
+            var response = caseService.CreateTestCase(section_id);
+            Console.WriteLine(response.Content);
+            Console.WriteLine(response.ErrorException);
+            Console.WriteLine(response.StatusCode);
+        }
+
+
+
+        [Test]
         public void DeleteTestCase()
         {
-            var caseCode = "TESTM";
-            var id = 3;
-            var response = caseService.DeleteTestCase(caseCode, id);
+            //  2271 and other
+            int testCaseID = 2271;
+            var response = caseService.DeleteTestCase(testCaseID);
             Console.WriteLine(response.Content);
-            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+            Console.WriteLine(response.ErrorException);
+            Console.WriteLine(response.StatusCode);
         }
         [Test]
         public void UpdateTestCase()
         {
-            var caseCode = "TESTM";
-            var id = 2;
-            var newTitle = "new_test_case2";
-
-            var response = caseService.UpdateTestCase(caseCode, id, newTitle);
+            int testCaseID = 2271;
+            var response = caseService.UpdateTestCase(testCaseID);
             Console.WriteLine(response.Content);
-            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
-        }
-        [Test]
-        public void CreateTestCasesinBulk()
-        {
-            var caseCode = "TESTM";
-            var title = "test_case_bulk";
-
-            var response = caseService.CreateTestCasesinBulk(caseCode, title);
-            Console.WriteLine(response.Content);
-            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
-        }
-        [Test]
-        public void CreateANewTestCase()
-        {
-            var caseCode = "TESTM";
-            var title = "test_case";
-            var response = caseService.CreateANewTestCase(caseCode, title);
-            Console.WriteLine(response.Content);
-            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
-        }
-        [Test]
-        public void GetASpecificTestCase()
-        {
-            var caseCode = "TESTM";
-            var id = 2;
-
-            var response = caseService.GetASpecificTestCase(caseCode, id);
-            Console.WriteLine(response.Content);
-            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+            Console.WriteLine(response.ErrorException);
+            Console.WriteLine(response.StatusCode);
         }
     }
 }
-

@@ -12,13 +12,13 @@ namespace Core.Configuration
         public static ApiConfiguration Api => BindConfiguration<ApiConfiguration>();
         public static BrowserConfiguration Browser => BindConfiguration<BrowserConfiguration>();
         private static IConfigurationRoot configurationRoot;
-       // private string path = DirectoryHelper.GetTestDataFolderPath();
+        static string configPath = DirectoryHelper.GetTestDataFolderPath()+"ApiSetting.json";
         static Configuration()
         {
 
             configurationRoot = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("C:\\Users\\Никита\\Source\\Repos\\DIploma_testRail\\Core\\Configuration\\TestData\\ApiSetting.json", optional: true, reloadOnChange: true)
+                .AddJsonFile(configPath, optional: true, reloadOnChange: true)
                 .Build();         
         }
 

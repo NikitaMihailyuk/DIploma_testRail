@@ -10,7 +10,7 @@ namespace Core
     {
         public static string GetTestDataFolderPath()
         {
-            return Environment.CurrentDirectory + "\\Configuration\\" + "\\TestData\\";
+            return Environment.CurrentDirectory +"\\Configuration"+"\\TestData\\";
         }
     }
 }
