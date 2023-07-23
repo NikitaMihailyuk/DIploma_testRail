@@ -12,8 +12,10 @@ namespace Core.Models
         public string Title { get; set; }
         public int Section_id { get; set; }
         public int Template_id { get; set; }
-        public string Type_id { get; set; }
+        public int Type_id { get; set; }
         public int Priority_id { get; set; }
+        public string Estimate { get; set; }
+        public int Milestone_id { get; set; }
         public string Refs { get; set; }
         public string Custom_preconds { get; set; }
         public string Custom_steps { get; set; }
