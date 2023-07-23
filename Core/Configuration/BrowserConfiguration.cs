@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DIploma_testRail.BussinessObject.Models;
+using Core.Models;
 
-namespace DIploma_testRail.Core.Configuration
+namespace Core.Configuration
 {
     public class BrowserConfiguration : IConfiguration
     {
@@ -15,6 +15,6 @@ namespace DIploma_testRail.Core.Configuration
         public bool Hedless { get; set; }
         public string Type { get; set; }
         public int TimeOut { get; set; }
-        public List<UserModel> ListOfUsers { get; set; }
+       public List<UserModel> ListOfUsers { get; set; }
     }
 }

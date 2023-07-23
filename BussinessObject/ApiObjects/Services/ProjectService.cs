@@ -1,5 +1,5 @@
-﻿using DIploma_testRail.BussinessObject.Models;
-using DIploma_testRail.Core;
+﻿using Core.Models;
+using Core;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.BussinessObject.ApiObjects.Services
+namespace BussinessObject.ApiObjects.Services
 {
     internal class ProjectService : BaseService
     {

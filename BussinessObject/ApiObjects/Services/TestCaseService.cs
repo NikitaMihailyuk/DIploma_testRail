@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DIploma_testRail.Core;
+using Core;
 using RestSharp;
-using DIploma_testRail.Core.Configuration;
+using Core.Configuration;
 
-namespace DIploma_testRail.BussinessObject.ApiObjects.Services
+namespace BussinessObject.ApiObjects.Services
 {
     public class TestCaseService : BaseService
     {

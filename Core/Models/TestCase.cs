@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.BussinessObject.Models
+namespace Core.Models
 {
     public class TestCase
     {

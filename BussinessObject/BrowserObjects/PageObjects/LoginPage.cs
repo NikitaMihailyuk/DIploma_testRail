@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using DIploma_testRail.BussinessObject.BrowserObjects.SeleniumElements;
-using DIploma_testRail.BussinessObject.Models;
-using DIploma_testRail.Core;
+using BussinessObject.BrowserObjects.SeleniumElements;
+using Core.Models;
+using Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Allure.Attributes;
 using NLog;
-using DIploma_testRail.BussinessObject.BrowserObjects.PageObjects;
+using BussinessObject.BrowserObjects.PageObjects;
 
 using static System.Net.WebRequestMethods;
 
-namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
+namespace BussinessObject.BrowserObjects.PageObjects
 {
     public class LoginPage
     {

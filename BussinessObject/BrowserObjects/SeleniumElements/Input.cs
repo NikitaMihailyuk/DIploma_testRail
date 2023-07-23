@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.BussinessObject.BrowserObjects.SeleniumElements
+namespace BussinessObject.BrowserObjects.SeleniumElements
 {
     public class Input : BaseElement
     {

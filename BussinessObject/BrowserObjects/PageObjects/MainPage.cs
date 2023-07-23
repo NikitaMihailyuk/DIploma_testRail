@@ -1,6 +1,6 @@
-﻿using DIploma_testRail.BussinessObject.BrowserObjects.SeleniumElements;
-using DIploma_testRail.BussinessObject.Models;
-using DIploma_testRail.Core;
+﻿using BussinessObject.BrowserObjects.SeleniumElements;
+using Core.Models;
+using Core;
 using NUnit.Allure.Attributes;
 using NLog;
 using NUnit.Allure.Attributes;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
+namespace BussinessObject.BrowserObjects.PageObjects
 {
     public class MainPage
     {

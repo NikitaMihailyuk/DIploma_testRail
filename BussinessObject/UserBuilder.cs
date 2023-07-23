@@ -1,13 +1,13 @@
 ﻿using Bogus;
-using DIploma_testRail.BussinessObject.Models;
+using Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DIploma_testRail.Core.Configuration;
+using Core.Configuration;
 
-namespace DIploma_testRail.BussinessObject
+namespace BussinessObject
 {
     public class UserBuilder
     {
@@ -18,8 +18,8 @@ namespace DIploma_testRail.BussinessObject
         {
             return new UserModel
             {
-                Name = Configuration.Browser.ListOfUsers[0].Name,
-                Password = Configuration.Browser.ListOfUsers[0].Password
+             Name = Configuration.Browser.ListOfUsers[0].Name,
+             Password = Configuration.Browser.ListOfUsers[0].Password
             };
         }
 

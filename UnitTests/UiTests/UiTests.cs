@@ -1,15 +1,14 @@
 ﻿using Allure.Commons;
-using DIploma_testRail.BussinessObject.BrowserObjects.PageObjects;
-using DIploma_testRail.BussinessObject;
+using BussinessObject;
 using NUnit.Allure.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DIploma_testRail.BussinessObject.BrowserObjects;
+using BussinessObject.BrowserObjects.PageObjects;
 
-namespace DIploma_testRail.UnitTests.UiTests
+namespace UnitTests.UiTests
 {
 
     public class SalesForceTests : BaseBrowserTest

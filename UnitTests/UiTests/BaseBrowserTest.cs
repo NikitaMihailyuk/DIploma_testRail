@@ -1,5 +1,5 @@
 ﻿using Allure.Commons;
-using DIploma_testRail.Core;
+using Core;
 using NUnit.Allure.Core;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DIploma_testRail.BussinessObject.BrowserObjects;
+using BussinessObject.BrowserObjects;
 
-namespace DIploma_testRail.UnitTests.UiTests
+namespace UnitTests.UiTests
 {
     [AllureNUnit]
     [Parallelizable(ParallelScope.All)]

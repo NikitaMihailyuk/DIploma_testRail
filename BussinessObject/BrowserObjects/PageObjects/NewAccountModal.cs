@@ -1,4 +1,4 @@
-﻿using DIploma_testRail.BussinessObject.BrowserObjects.SeleniumElements;
+﻿using BussinessObject.BrowserObjects.SeleniumElements;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.BussinessObject.BrowserObjects.PageObjects
+namespace BussinessObject.BrowserObjects.PageObjects
 {
     public class NewAccountModal
     {

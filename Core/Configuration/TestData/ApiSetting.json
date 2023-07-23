@@ -4,8 +4,18 @@
     "Token": "vd0SC5SATgakfaOApOYa-DJPIScT3dEp1AzUgVms5"
   },
   "Browser": {
-    "Hedless": "true",
+    "Hedless": "false",
     "Type": "Chrome",
-    "TimeOut": 10
+    "TimeOut": 10,
+    "ListOfUsers": [
+      {
+        "Name": "roychikenotik@gmail.com",
+        "Password": "RoyRoy_13"
+      },
+      {
+        "Name": "roychikenotik2@gmail.com",
+        "Password": "RoyRoy_13"
+      }
+    ]
   }
 }

@@ -1,4 +1,4 @@
-﻿using DIploma_testRail.Core.Configuration;
+﻿using Core.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium;
 
-namespace DIploma_testRail.Core
+namespace Core
 {
     public class Browser
     {
@@ -23,6 +23,8 @@ namespace DIploma_testRail.Core
 
         private Browser()
         {
+            Console.WriteLine(Configuration.Configuration.Browser);
+
             driver = Configuration.Configuration.Browser.Type.ToLower() switch
             {
                 "chrome" => DriverFactory.GetChromeDriver(),

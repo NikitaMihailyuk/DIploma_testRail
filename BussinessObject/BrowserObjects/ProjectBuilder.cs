@@ -1,12 +1,12 @@
 ﻿using Bogus;
-using DIploma_testRail.BussinessObject.Models;
+using Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.BussinessObject.BrowserObjects
+namespace BussinessObject.BrowserObjects
 {
     internal class ProjectBuilder
     {

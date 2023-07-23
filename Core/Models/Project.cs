@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.BussinessObject.Models
+namespace Core.Models
 {
-    internal class Project
+    public class Project
     {
         public string Title { get; set; }
         public string Code { get; set; }

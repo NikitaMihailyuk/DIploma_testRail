@@ -1,5 +1,5 @@
-﻿using DIploma_testRail.BussinessObject.Models;
-using DIploma_testRail.Core;
+﻿using Core.Models;
+using Core;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.BussinessObject.BrowserObjects
+namespace BussinessObject.BrowserObjects
 {
     public class BrowserAssertHelper
     {

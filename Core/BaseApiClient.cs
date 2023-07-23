@@ -9,7 +9,7 @@ using RestSharp.Authenticators;
 using Bogus;
 using System.Security.Policy;
 
-namespace DIploma_testRail.Core
+namespace Core
 {
     public class BaseApiClient
     {

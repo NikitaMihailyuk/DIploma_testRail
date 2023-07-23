@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.BussinessObject.Models
+namespace Core.Models
 {
-    internal class CommonResultResponse<T>
+    public class CommonResultResponse<T>
     {
         public bool Status { get; set; }
         public T Result { get; set; }
