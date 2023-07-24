@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Allure.Attributes;
 using NLog;
+using Core;
+using OpenQA.Selenium.Interactions;
 
 namespace BussinessObject.BrowserObjects.PageObjects
 {
@@ -15,13 +17,20 @@ namespace BussinessObject.BrowserObjects.PageObjects
     {
 
         private Button createTestCaseButton = new(By.XPath("//*[@id='sidebar-cases-add']"));
+        private Button deleteTestCaseButton = new(By.XPath("//*[@class='deleteLink']"));
+        private Button confirmationDeleteTestCaseButton = new(By.XPath("//div[@id='casesDeletionDialog']//a[contains(text(),'Delete Permanently')]"));
+        private Button anotherConfirmaitonButton = new(By.XPath("//div[@id='casesDeletionConfirmationDialog']//a[contains(text(),'Delete Permanently')]"));
         private Input title = new("title");
         private Input custom_preconds_display = new ("custom_preconds_display");
         private Input custom_steps_display = new("custom_steps_display");
         private Input custom_expected_display = new("custom_expected_display");
+        private BaseElement testCaseElement =  new (By.XPath("//*[@class='caseRow row odd caseDroppable ']"));
+
 
         private Button saveButton = new("accept");
         TestCaseBuilder testCaseBuilder = new TestCaseBuilder();
+        private Actions action = new Actions(Browser.Instance.Driver);
+
 
         [AllureStep]
         public TestCasePage OpenTestCasePage()
@@ -39,6 +48,16 @@ namespace BussinessObject.BrowserObjects.PageObjects
             custom_steps_display.GetElement().SendKeys(testCaseData.Custom_steps_separated.ToString());
             custom_expected_display.GetElement().SendKeys(testCaseData.Custom_expected);
             saveButton.GetElement().Click();    
+        }
+        [AllureStep]
+        public void DeleteTestCase()
+        {
+     
+        action.MoveToElement(testCaseElement.GetElement()).Perform();
+   
+        deleteTestCaseButton.GetElement().Click();
+        confirmationDeleteTestCaseButton.GetElement().Click();
+        anotherConfirmaitonButton.GetElement().Click();
         }
     }
 }

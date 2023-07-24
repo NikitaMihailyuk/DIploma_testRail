@@ -12,7 +12,7 @@ namespace BussinessObject.BrowserObjects
 {
     internal class TestCaseBuilder
     {
-        static Faker Faker = new();
+        private static Faker Faker = new();
         public TestCase TestCaseCreator()
         {
 
@@ -20,9 +20,11 @@ namespace BussinessObject.BrowserObjects
             {
                 Title = Faker.Lorem.Text(),
                 Type_id = 1,
-                Template_id= 1,
+                Template_id = 1,
                 Priority_id = 1,
                 Estimate = "60m",
+                Milestone_id = "1",
+                Custom_steps = Faker.Lorem.Text(),
                 Custom_preconds = Faker.Lorem.Text(),
                 Custom_steps_separated = new Custom_steps_separated { Content = Faker.Lorem.Text(), Expected = Faker.Lorem.Text() },
                 Custom_expected = Faker.Lorem.Text()

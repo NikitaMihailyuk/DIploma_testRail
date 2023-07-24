@@ -31,8 +31,8 @@ namespace BussinessObject.BrowserObjects.PageObjects
         public ProjectPage CreateProjectType1()
         {
             CreateProjectModel dataProject = projectBuilder.CreateProject();
-            name.GetElement().SendKeys(dataProject.Title);
-            announcement.GetElement().SendKeys(dataProject.Description);
+            name.GetElement().SendKeys(dataProject.name);
+            announcement.GetElement().SendKeys(dataProject.announcement);
             prjButton.GetElement().Click();
             saveButton.GetElement().Click();
             return this;
@@ -43,10 +43,10 @@ namespace BussinessObject.BrowserObjects.PageObjects
         {
             CreateProjectModel dataProject = projectBuilder.CreateProject();
             name.GetElement().Clear();
-            name.GetElement().SendKeys(dataProject.Title);
+            name.GetElement().SendKeys(dataProject.name);
 
             announcement.GetElement().Clear();
-            announcement.GetElement().SendKeys(dataProject.Description);
+            announcement.GetElement().SendKeys(dataProject.announcement);
             prjButton.GetElement().Click();
             saveButton.GetElement().Click();
             return this;

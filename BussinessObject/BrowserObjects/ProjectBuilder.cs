@@ -16,9 +16,10 @@ namespace BussinessObject.BrowserObjects
 
             return new CreateProjectModel
             {
-                Title = Faker.Name.JobTitle(),
-                Description = Faker.Lorem.Text()
-
+                name = Faker.Name.JobTitle(),
+                announcement = Faker.Lorem.Text(),
+                suite_mode = 1,
+                group = "1"
             };
         }
     }
