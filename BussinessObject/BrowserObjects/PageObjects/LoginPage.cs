@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using NUnit.Allure.Attributes;
 using NLog;
 using BussinessObject.BrowserObjects.PageObjects;
-
 using static System.Net.WebRequestMethods;
 
 namespace BussinessObject.BrowserObjects.PageObjects

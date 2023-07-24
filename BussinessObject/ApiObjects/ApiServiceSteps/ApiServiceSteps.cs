@@ -12,13 +12,14 @@ namespace BussinessObject.ApiObjects.ApiServiceSteps
 {
     internal class ApiProjectSteps : ProjectService
     {
-        public new CreateProjectModel GetProjectByCode(string code)
-        {
-            var response = base.GetProjectByCode(code);
-            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
-            Assert.IsNotNull(response.Content);
+        /*   public new CreateProjectModel GetProjectByCode(string code)
+           {
+               var response = base(code);
+               Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+               Assert.IsNotNull(response.Content);
 
-            return JsonConvert.DeserializeObject<CommonResultResponse<CreateProjectModel>>(response.Content).Result;
-        }
+               return JsonConvert.DeserializeObject<CommonResultResponse<CreateProjectModel>>(response.Content).Result;
+           }
+        */
     }
 }

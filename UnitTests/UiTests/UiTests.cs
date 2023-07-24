@@ -11,7 +11,7 @@ using BussinessObject.BrowserObjects.PageObjects;
 namespace UnitTests.UiTests
 {
 
-    public class SalesForceTests : BaseBrowserTest
+    public class UiTests : BaseBrowserTest
     {
         #region Project 
         [Test(Description = "Failed coz random")]
@@ -123,7 +123,22 @@ namespace UnitTests.UiTests
 
             browserAssertHelper.CreateNewTestCaseAssert();
         }
+        [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        public void DeleteTestCase()
+        {
+            var user = UserBuilder.GetTestRailUser();
+            new LoginPage()
+                .OpenPage()
+                .Login(user).OpenTestCasePage().DeleteTestCase();
 
+          //  browserAssertHelper.CreateNewTestCaseAssert();
+        }
 
         #endregion Tests 
     }

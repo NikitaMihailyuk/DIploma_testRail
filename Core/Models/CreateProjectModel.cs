@@ -8,10 +8,11 @@ namespace Core.Models
 {
     public class CreateProjectModel
     {
-        public string Title { get; set; }
-        public string Code { get; set; }
-        public string Description { get; set; }
-        public string Access { get; set; }
-        public string Group { get; set; }
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string announcement { get; set; }
+        public bool show_announcement { get; set; }
+        public int suite_mode { get; set; }
+        public string group { get; set; }
     }
 }

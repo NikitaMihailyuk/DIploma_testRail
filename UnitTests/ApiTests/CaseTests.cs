@@ -15,16 +15,17 @@ using Newtonsoft.Json;
 namespace UnitTests.ApiTests
 {
 
-    internal class CaseTests : BaseApiTest
+    internal class ApiTests : BaseApiTest
     {
 
         protected TestCaseService caseService;
-
+        protected ProjectService projectService;
 
         [OneTimeSetUp]
         public void InitialService()
         {
             caseService = new TestCaseService();
+            projectService = new ProjectService();
         }
 
         [Test]
@@ -53,7 +54,7 @@ namespace UnitTests.ApiTests
         [Test]
         public void GetTestCase()
         {
-           int testId = 2268;
+            int testId = 2278;
 
             var response = caseService.GetTestCase(testId);
             Console.WriteLine(response.Content);
@@ -62,13 +63,15 @@ namespace UnitTests.ApiTests
             Assert.AreEqual(testId, testData.Id);
         }
 
-         [Test]
+        [Test]
         public void CreateTestCase()
         {
             int section_id = 185;
-           
+
 
             var response = caseService.CreateTestCase(section_id);
+            Console.WriteLine(response.Content);
+            Console.WriteLine(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
@@ -93,5 +96,53 @@ namespace UnitTests.ApiTests
             Console.WriteLine(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
+
+        [Test]
+        public void GetProject()
+        {
+            int idProject = 1;
+            var response = projectService.GetProject(idProject);
+            Console.WriteLine(response.Content);
+            Console.WriteLine(response.StatusCode);
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+        }
+
+        [Test]
+        public void GetProjects()
+        {
+            var response = projectService.GetProjects();
+            Console.WriteLine(response.Content);
+            Console.WriteLine(response.StatusCode);
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+        }
+
+        [Test]
+        public void AddProjects()
+        {
+            var response = projectService.CreateProject();
+            Console.WriteLine(response.Content);
+            Console.WriteLine(response.StatusCode);
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+        }
+
+        [Test]
+        public void UpdateProject()
+        {
+            int idProject = 7;
+            var response = projectService.UpdateProject(idProject);
+            Console.WriteLine(response.Content);
+            Console.WriteLine(response.StatusCode);
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+        }
+        [Test]
+        public void DeleteProject()
+        {
+            int idProject = 7;
+            var response = projectService.DeleteProject(idProject);
+            Console.WriteLine(response.Content);
+            Console.WriteLine(response.StatusCode);
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+        }
+
     }
 }

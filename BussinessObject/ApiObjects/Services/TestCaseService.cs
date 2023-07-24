@@ -11,6 +11,7 @@ using BussinessObject.BrowserObjects;
 using NUnit.Framework.Interfaces;
 using NUnit.Allure.Attributes;
 using NLog;
+using OpenQA.Selenium.Interactions;
 
 namespace BussinessObject.ApiObjects.Services
 {
@@ -36,6 +37,7 @@ Case statuses	GET index.php?/api/v2/get_case_statuses
         public TestCaseService() : base(Configuration.Api.BaseUrl)
         {
         }
+       
 
         TestCaseBuilder testCaseBuilder = new TestCaseBuilder();
 
