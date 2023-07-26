@@ -31,9 +31,7 @@ namespace UnitTests.ApiTests
         [Test]
         public void GetRuns()
         {
-            var offset = 1;
-
-            var response = caseService.GetRuns(offset);
+            var response = caseService.GetRuns(1);
             Console.WriteLine(response.Content);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
@@ -42,9 +40,7 @@ namespace UnitTests.ApiTests
         [Test]
         public void InvalidToken()
         {
-            var offset = 1;
-
-            var response = caseService.GetAlltestRunsinvalid(offset);
+            var response = caseService.GetAlltestRunsinvalid(1);
             Console.WriteLine(response.Content);
             Console.WriteLine(response.ErrorException);
             Console.WriteLine(response.StatusCode);
@@ -54,7 +50,7 @@ namespace UnitTests.ApiTests
         [Test]
         public void GetTestCase()
         {
-            int testId = 2278;
+            int testId = 2287;
 
             var response = caseService.GetTestCase(testId);
             Console.WriteLine(response.Content);
@@ -66,7 +62,7 @@ namespace UnitTests.ApiTests
         [Test]
         public void CreateTestCase()
         {
-            int section_id = 185;
+            int section_id = 186;
 
 
             var response = caseService.CreateTestCase(section_id);
@@ -90,7 +86,7 @@ namespace UnitTests.ApiTests
         [Test]
         public void UpdateTestCase()
         {
-            int testCaseID = 2271;
+            int testCaseID = 2287;
             var response = caseService.UpdateTestCase(testCaseID);
             Console.WriteLine(response.Content);
             Console.WriteLine(response.StatusCode);
@@ -128,7 +124,7 @@ namespace UnitTests.ApiTests
         [Test]
         public void UpdateProject()
         {
-            int idProject = 7;
+            int idProject = 8;
             var response = projectService.UpdateProject(idProject);
             Console.WriteLine(response.Content);
             Console.WriteLine(response.StatusCode);

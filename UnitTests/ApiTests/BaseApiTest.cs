@@ -11,7 +11,7 @@ using Allure.Commons;
 namespace UnitTests.ApiTests
 {
     [AllureNUnit]
-    [Parallelizable(ParallelScope.All)]
+    [Parallelizable(ParallelScope.Fixtures)]
     internal class BaseApiTest
     {
         private AllureLifecycle allure;

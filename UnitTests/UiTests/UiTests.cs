@@ -27,9 +27,8 @@ namespace UnitTests.UiTests
             var user = UserBuilder.GetRandomUser();
             new LoginPage()
                 .OpenPage()
-                .Login(user);
+                .Login(user).LoginErrorAssert();
 
-            browserAssertHelper.LoginErrorAssert();
         }
 
         [Test]
@@ -45,7 +44,8 @@ namespace UnitTests.UiTests
 
             new LoginPage()
                 .OpenPage()
-                .Login(user);
+                .Login(user)
+                .AssertUserName("Nikita nikita");
         }
 
 
@@ -62,10 +62,10 @@ namespace UnitTests.UiTests
 
             new LoginPage()
                 .OpenPage()
-                .Login(user).
-                OpenNewProjectPage().
-                CreateProjectType1();
-            browserAssertHelper.CreateNewProjectAssert();
+                .Login(user)
+                .OpenNewProjectPage()
+                .CreateProjectType1()
+                .SuccesMessageAssert(DataHelper.succesCreateProjectMessage);
         }
 
         [Test]
@@ -80,11 +80,11 @@ namespace UnitTests.UiTests
             var user = UserBuilder.GetTestRailUser();
 
             new LoginPage()
-                .OpenPage().
-                Login(user).
-                OpenEditProjectPage().EditProject();
-
-            browserAssertHelper.EditProjectAssert();
+                .OpenPage()
+                .Login(user)
+                .OpenEditProjectPage()
+                .EditProject()
+                .SuccesMessageAssert(DataHelper.succesUpdateProjectMessage);
         }
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -100,9 +100,8 @@ namespace UnitTests.UiTests
             new LoginPage()
                 .OpenPage()
                 .Login(user)
-                .DeleteProject();
-
-            browserAssertHelper.DeleteProjectAssert();
+                .DeleteProject()
+                .SuccesMessageAssert(DataHelper.succesDeleteProjectMessage);
         }
         #endregion Project 
         #region Tests
@@ -119,9 +118,9 @@ namespace UnitTests.UiTests
             var user = UserBuilder.GetTestRailUser();
             new LoginPage()
                 .OpenPage()
-                .Login(user).OpenTestCasePage().CreateTestCase();
-
-            browserAssertHelper.CreateNewTestCaseAssert();
+                .Login(user)
+                .OpenTestCasePage()
+                .CreateTestCase();
         }
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -135,9 +134,8 @@ namespace UnitTests.UiTests
             var user = UserBuilder.GetTestRailUser();
             new LoginPage()
                 .OpenPage()
-                .Login(user).OpenTestCasePage().DeleteTestCase();
-
-          //  browserAssertHelper.CreateNewTestCaseAssert();
+                .Login(user).OpenTestCasePage()
+                .DeleteTestCase();
         }
 
         #endregion Tests 

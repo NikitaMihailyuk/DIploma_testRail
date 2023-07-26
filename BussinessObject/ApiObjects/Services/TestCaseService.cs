@@ -93,7 +93,7 @@ Case statuses	GET index.php?/api/v2/get_case_statuses
         {
             var request = new RestRequest(UpdateTestCaseEndPoint, Method.Post).AddUrlSegment("case_id", case_id);
             var body = testCaseBuilder.TestCaseCreator();
-            body.Section_id = 185;
+            body.Section_id = 186;
             request.AddBody(body);
 
             return apiClient.Execute(request);
