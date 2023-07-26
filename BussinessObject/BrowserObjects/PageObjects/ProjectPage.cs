@@ -11,7 +11,7 @@ using NLog;
 
 namespace BussinessObject.BrowserObjects.PageObjects
 {
-    public class ProjectPage
+    public class ProjectPage : BaseBrowserPage
     {
         Input name = new("name");
         Input announcement = new("announcement_display");

@@ -13,7 +13,7 @@ using OpenQA.Selenium.Interactions;
 
 namespace BussinessObject.BrowserObjects.PageObjects
 {
-    public class TestCasePage
+    public class TestCasePage : BaseBrowserPage
     {
 
         private Button createTestCaseButton = new(By.XPath("//*[@id='sidebar-cases-add']"));

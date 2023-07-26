@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using BussinessObject.BrowserObjects.SeleniumElements;
-using Core.Models;
 using Core;
 using System;
 using System.Collections.Generic;
@@ -10,11 +9,11 @@ using System.Threading.Tasks;
 using NUnit.Allure.Attributes;
 using NLog;
 using BussinessObject.BrowserObjects.PageObjects;
-using static System.Net.WebRequestMethods;
+//using static System.Net.WebRequestMethods;
 
 namespace BussinessObject.BrowserObjects.PageObjects
 {
-    public class LoginPage
+    public class LoginPage  : BaseBrowserPage
     {
         private Input userNameInput = new("name");
         private Input passwordInput = new("password");
@@ -22,12 +21,11 @@ namespace BussinessObject.BrowserObjects.PageObjects
         private Button checkBoxButton = new(By.XPath("//*[@id='rememberme']/following-sibling::span"));
 
 
-        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         [AllureStep]
         public LoginPage OpenPage()
         {
-            var url = "https://isthisnikita2.testrail.io/index.php?/auth/login/";
+            var url = DataHelper.authUrl;
             Browser.Instance.NavigateToUrl(url);
             logger.Info($"Navigate to url {url}");
             return this;

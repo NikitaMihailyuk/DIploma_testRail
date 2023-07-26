@@ -13,11 +13,10 @@ using BussinessObject.BrowserObjects;
 namespace UnitTests.UiTests
 {
     [AllureNUnit]
-    [Parallelizable(ParallelScope.All)]
+    [Parallelizable(ParallelScope.Fixtures)]
     public class BaseBrowserTest
     {
         private AllureLifecycle allure;
-        public BrowserAssertHelper browserAssertHelper = new BrowserAssertHelper();
 
         [OneTimeSetUp]
         public void SetUp()
