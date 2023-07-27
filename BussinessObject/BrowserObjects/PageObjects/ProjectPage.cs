@@ -35,6 +35,7 @@ namespace BussinessObject.BrowserObjects.PageObjects
             announcement.GetElement().SendKeys(dataProject.announcement);
             prjButton.GetElement().Click();
             saveButton.GetElement().Click();
+
             return this;
         }
 
@@ -42,13 +43,14 @@ namespace BussinessObject.BrowserObjects.PageObjects
         public ProjectPage EditProject()
         {
             CreateProjectModel dataProject = projectBuilder.CreateProject();
+
             name.GetElement().Clear();
             name.GetElement().SendKeys(dataProject.name);
-
             announcement.GetElement().Clear();
             announcement.GetElement().SendKeys(dataProject.announcement);
             prjButton.GetElement().Click();
             saveButton.GetElement().Click();
+
             return this;
         }
     }

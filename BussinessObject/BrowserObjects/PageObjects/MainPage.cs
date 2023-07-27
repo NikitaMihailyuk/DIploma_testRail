@@ -19,7 +19,6 @@ public class MainPage : BaseBrowserPage
 {
     private string startPage = Configuration.Api.BaseUrl;
 
-
     private Button createProjectButton = new("sidebar-projects-add");
     private Button deleteProjectButton = new("Delete");
     private Button editeProjectButton = new(By.XPath("//*[text()='Edit']"));
@@ -29,32 +28,36 @@ public class MainPage : BaseBrowserPage
     private BaseElement dialogDeleteButton = new(By.XPath("//*[@id='deleteDialog']//input"));
     private BaseElement dialogAcceptDeleteButton = new(By.XPath("//*[@id='deleteDialog']//a"));
 
-
    [AllureStep]
     public MainPage OpenMainPage()
     {
         Browser.Instance.NavigateToUrl(startPage);
         logger.Info($"Navigate to url {startPage}");
+
         return this;
     }
+
     [AllureStep]
     public ProjectPage OpenNewProjectPage()
     {
         createProjectButton.GetElement().Click();
+
         return new ProjectPage();
     }
+
     [AllureStep]
     public ProjectPage OpenEditProjectPage()
     {
         projectForUpdate.GetElement().Click();
         editeProjectButton.GetElement().Click();
+
         return new ProjectPage();
     }
     [AllureStep]
     public MainPage DeleteProject()
     {
         Browser.Instance.NavigateToUrl(DataHelper.projectPageUrl);
-       logger.Info($"Navigate to url {DataHelper.projectPageUrl}");
+        logger.Info($"Navigate to url {DataHelper.projectPageUrl}");
 
         deleteProjectIcon.GetElement().Click();
         dialogDeleteButton.GetElement().Click();
@@ -67,6 +70,7 @@ public class MainPage : BaseBrowserPage
     {
         projectForUpdate.GetElement().Click();
         testCaseButton.GetElement().Click(); 
+
         return new TestCasePage();
     }
 }

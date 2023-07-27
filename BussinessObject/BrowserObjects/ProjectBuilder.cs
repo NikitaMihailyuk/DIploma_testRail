@@ -11,9 +11,9 @@ namespace BussinessObject.BrowserObjects
     internal class ProjectBuilder
     {
         static Faker Faker = new();
+
         public CreateProjectModel CreateProject()
         {
-
             return new CreateProjectModel
             {
                 name = Faker.Name.JobTitle(),

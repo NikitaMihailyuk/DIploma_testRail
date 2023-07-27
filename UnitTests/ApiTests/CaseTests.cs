@@ -17,9 +17,9 @@ namespace UnitTests.ApiTests
 
     internal class ApiTests : BaseApiTest
     {
-
         protected TestCaseService caseService;
         protected ProjectService projectService;
+
 
         [OneTimeSetUp]
         public void InitialService()
@@ -27,6 +27,7 @@ namespace UnitTests.ApiTests
             caseService = new TestCaseService();
             projectService = new ProjectService();
         }
+
 
         [Test]
         public void GetRuns()
@@ -47,6 +48,7 @@ namespace UnitTests.ApiTests
             Assert.That(response.StatusDescription, Is.EqualTo("Unauthorized"));
         }
 
+
         [Test]
         public void GetTestCase()
         {
@@ -59,18 +61,17 @@ namespace UnitTests.ApiTests
             Assert.AreEqual(testId, testData.Id);
         }
 
+
         [Test]
         public void CreateTestCase()
         {
             int section_id = 186;
-
 
             var response = caseService.CreateTestCase(section_id);
             Console.WriteLine(response.Content);
             Console.WriteLine(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-
 
 
         [Test]
@@ -83,6 +84,8 @@ namespace UnitTests.ApiTests
             Console.WriteLine(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
+
+
         [Test]
         public void UpdateTestCase()
         {
@@ -92,6 +95,7 @@ namespace UnitTests.ApiTests
             Console.WriteLine(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
+
 
         [Test]
         public void GetProject()
@@ -103,6 +107,7 @@ namespace UnitTests.ApiTests
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
+
         [Test]
         public void GetProjects()
         {
@@ -111,6 +116,7 @@ namespace UnitTests.ApiTests
             Console.WriteLine(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
+
 
         [Test]
         public void AddProjects()
@@ -121,6 +127,7 @@ namespace UnitTests.ApiTests
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
+
         [Test]
         public void UpdateProject()
         {
@@ -130,6 +137,8 @@ namespace UnitTests.ApiTests
             Console.WriteLine(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
+
+
         [Test]
         public void DeleteProject()
         {
@@ -139,6 +148,5 @@ namespace UnitTests.ApiTests
             Console.WriteLine(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-
     }
 }

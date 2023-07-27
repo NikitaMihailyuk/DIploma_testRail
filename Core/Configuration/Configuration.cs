@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Core.Configuration.Config_Models;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace Core.Configuration
     {
         public static ApiConfiguration Api => BindConfiguration<ApiConfiguration>();
         public static BrowserConfiguration Browser => BindConfiguration<BrowserConfiguration>();
+        public static AccountSolutionModel Account => BindConfiguration<AccountSolutionModel>();
+
         private static IConfigurationRoot configurationRoot;
         static string configPath = DirectoryHelper.GetTestDataFolderPath()+"ApiSetting.json";
         static Configuration()

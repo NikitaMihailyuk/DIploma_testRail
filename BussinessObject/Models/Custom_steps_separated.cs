@@ -10,6 +10,5 @@ namespace Core.Models
     {
         public string Content { get; set; }
         public string Expected { get; set; }
-
     }
 }

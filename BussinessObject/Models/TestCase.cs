@@ -21,6 +21,5 @@ namespace Core.Models
         public string Custom_steps { get; set; }
         public string Custom_expected { get; set; }
         public Custom_steps_separated Custom_steps_separated { get; set;}
-
     }
 }

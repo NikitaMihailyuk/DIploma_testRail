@@ -22,6 +22,5 @@ namespace BussinessObject.BrowserObjects.SeleniumElements
             WebDriver.FindElement(locator).Click();
             WebDriver.FindElement(By.XPath($"//*[@title='{option}']")).Click();
         }
-
     }
 }
