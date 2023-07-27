@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using NUnit.Allure.Attributes;
 using NLog;
 using BussinessObject.BrowserObjects.PageObjects;
-//using static System.Net.WebRequestMethods;
+
 
 namespace BussinessObject.BrowserObjects.PageObjects
 {
@@ -20,8 +20,6 @@ namespace BussinessObject.BrowserObjects.PageObjects
         private Button loginButton = new("button_primary");
         private Button checkBoxButton = new(By.XPath("//*[@id='rememberme']/following-sibling::span"));
 
-
-
         [AllureStep]
         public LoginPage OpenPage()
         {
@@ -30,6 +28,7 @@ namespace BussinessObject.BrowserObjects.PageObjects
             logger.Info($"Navigate to url {url}");
             return this;
         }
+
         [AllureStep]
         public MainPage Login(UserModel user)
         {

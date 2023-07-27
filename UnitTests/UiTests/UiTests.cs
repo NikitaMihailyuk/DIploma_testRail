@@ -10,7 +10,6 @@ using BussinessObject.BrowserObjects.PageObjects;
 
 namespace UnitTests.UiTests
 {
-
     public class UiTests : BaseBrowserTest
     {
         #region Project 
@@ -21,7 +20,6 @@ namespace UnitTests.UiTests
         [AllureOwner("Nikita")]
         [AllureSuite("TestRail")]
         [AllureSubSuite("TestRail-negative")]
-
         public void ErrorLogin()
         {
             var user = UserBuilder.GetRandomUser();
@@ -30,6 +28,7 @@ namespace UnitTests.UiTests
                 .Login(user).LoginErrorAssert();
 
         }
+
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -45,7 +44,7 @@ namespace UnitTests.UiTests
             new LoginPage()
                 .OpenPage()
                 .Login(user)
-                .AssertUserName("Nikita nikita");
+                .AssertUserName();
         }
 
 
@@ -68,6 +67,7 @@ namespace UnitTests.UiTests
                 .SuccesMessageAssert(DataHelper.succesCreateProjectMessage);
         }
 
+
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTag("Smoke")]
@@ -86,6 +86,8 @@ namespace UnitTests.UiTests
                 .EditProject()
                 .SuccesMessageAssert(DataHelper.succesUpdateProjectMessage);
         }
+
+
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTag("Smoke")]
@@ -106,6 +108,7 @@ namespace UnitTests.UiTests
         #endregion Project 
         #region Tests
 
+
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTag("Smoke")]
@@ -122,6 +125,8 @@ namespace UnitTests.UiTests
                 .OpenTestCasePage()
                 .CreateTestCase();
         }
+
+
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTag("Smoke")]
@@ -134,11 +139,10 @@ namespace UnitTests.UiTests
             var user = UserBuilder.GetTestRailUser();
             new LoginPage()
                 .OpenPage()
-                .Login(user).OpenTestCasePage()
+                .Login(user)
+                .OpenTestCasePage()
                 .DeleteTestCase();
         }
-
         #endregion Tests 
     }
-
 }

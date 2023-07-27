@@ -35,7 +35,6 @@ namespace BussinessObject.BrowserObjects.SeleniumElements
             BaseSelect(option, By.XPath(optionLocator));
         }
 
-
         public void BaseSelect(string option, By by)
         {
             WebDriver.FindElement(locator).Click();

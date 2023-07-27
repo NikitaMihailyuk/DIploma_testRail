@@ -9,7 +9,6 @@ namespace BussinessObject.BrowserObjects.SeleniumElements
 {
     internal class ProjectRadioButton : BaseElement
     {
-
         public ProjectRadioButton(By locator) : base(locator)
         {
         }
@@ -23,6 +22,5 @@ namespace BussinessObject.BrowserObjects.SeleniumElements
             WebDriver.FindElement(locator).Click();
             WebDriver.FindElement(By.XPath($"//*[@title='{option}']")).Click();
         }
-
     }
 }

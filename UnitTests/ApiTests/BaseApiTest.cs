@@ -17,6 +17,7 @@ namespace UnitTests.ApiTests
         private AllureLifecycle allure;
         protected BaseApiClient apiClient;
 
+
         [OneTimeSetUp]
         public void InitApiClient()
         {

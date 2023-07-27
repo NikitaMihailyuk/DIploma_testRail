@@ -22,8 +22,9 @@ namespace UnitTests.UiTests
         public void SetUp()
         {
             allure = AllureLifecycle.Instance;
-
         }
+
+
         [TearDown]
         public void TearDown()
         {
@@ -33,6 +34,7 @@ namespace UnitTests.UiTests
                 byte[] bytes = screenshot.AsByteArray;
                 allure.AddAttachment("Screenshot", "image/png", bytes);
             }
+
             Browser.Instance.CloseBrowser();
         }
     }

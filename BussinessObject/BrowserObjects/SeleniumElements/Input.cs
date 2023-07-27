@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BussinessObject.BrowserObjects.SeleniumElements
 {
-    public class Input : BaseElement
+  public class Input : BaseElement
     {
         public Input(By locator) : base(locator)
         {

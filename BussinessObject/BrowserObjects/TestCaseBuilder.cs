@@ -13,9 +13,9 @@ namespace BussinessObject.BrowserObjects
     internal class TestCaseBuilder
     {
         private static Faker Faker = new();
+
         public TestCase TestCaseCreator()
         {
-
             return new TestCase
             {
                 Title = Faker.Lorem.Text(),

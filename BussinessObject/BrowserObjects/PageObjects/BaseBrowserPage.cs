@@ -1,5 +1,6 @@
 ﻿using BussinessObject.BrowserObjects.SeleniumElements;
 using Core;
+using Core.Configuration;
 using NLog;
 using OpenQA.Selenium;
 using System;
@@ -13,7 +14,6 @@ namespace BussinessObject.BrowserObjects.PageObjects
     public class BaseBrowserPage
     {
         public static Logger logger = LogManager.GetCurrentClassLogger();
-   
 
         private BaseElement messageModal = new(By.XPath("//*[@class='message message-success']"));
         private BaseElement messageErrorTopString = new(By.XPath("//*[@class='error-on-top']"));
@@ -31,13 +31,16 @@ namespace BussinessObject.BrowserObjects.PageObjects
             Assert.AreEqual(errorString, errorText);
         }
 
-        public void AssertUserName(string userName)
+
+        public void AssertUserName()
         {
-            string cuurentUserName=userNameElement.GetElement().Text;
+            var userName = Configuration.Account.ToString();
+            string cuurentUserName = userNameElement.GetElement().Text;
             Assert.AreEqual(cuurentUserName, userName);
         }
-        //*[@class='navigation-username']
-        public void SuccesMessageAssert(string succesMessageText) 
+
+
+        public void SuccesMessageAssert(string succesMessageText)
         {
             string message = messageModal.GetElement().Text;
             Assert.AreEqual(succesMessageText, message);

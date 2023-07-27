@@ -23,6 +23,7 @@ namespace BussinessObject
             };
         }
 
+
         public static UserModel GetStandartUserWithoutName()
         {
             return new UserModel
@@ -30,8 +31,8 @@ namespace BussinessObject
                 Name = " ",
                 Password = TestContext.Parameters.Get("StandartUserPassword"),
             };
-
         }
+
 
         public static UserModel GetRandomUser()
         {
@@ -40,15 +41,13 @@ namespace BussinessObject
                 Name = Faker.Internet.Email(),
                 Password = Faker.Internet.Password(),
             };
-
         }
+
 
         public static UserModel GetRandomUserWithPassword(string password) => new()
         {
             Name = Faker.Name.FullName(),
             Password = password,
         };
-
-
     }
 }

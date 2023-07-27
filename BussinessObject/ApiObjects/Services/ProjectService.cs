@@ -23,10 +23,7 @@ namespace BussinessObject.ApiObjects.Services
 
         ProjectBuilder projectBuilder = new ProjectBuilder();
 
-        public ProjectService() : base(Configuration.Api.BaseUrl)
-        {
-
-        }
+        public ProjectService() : base(Configuration.Api.BaseUrl) {}
 
         [AllureStep]
         public RestResponse GetProject(int idProject)
@@ -58,7 +55,6 @@ namespace BussinessObject.ApiObjects.Services
 
             return apiClient.Execute(request);
         }
-
         [AllureStep]
         public RestResponse UpdateProject(int idProject)
         {
@@ -69,5 +65,4 @@ namespace BussinessObject.ApiObjects.Services
             return apiClient.Execute(request);
         }
     }
-
 }
