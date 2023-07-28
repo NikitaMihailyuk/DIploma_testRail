@@ -23,7 +23,7 @@ public class MainPage : BaseBrowserPage
     private Button deleteProjectButton = new("Delete");
     private Button editeProjectButton = new(By.XPath("//*[text()='Edit']"));
     private Button testCaseButton = new("navigation-suites");
-    private BaseElement projectForUpdate = new(By.XPath("//*[@id='project-3']//span/following-sibling::a"));
+    private BaseElement projectForUpdate = new(By.XPath("//*[@id='project-24']//span/following-sibling::a"));
     private BaseElement deleteProjectIcon = new(By.XPath("//tr[@class='even hoverSensitive']/following-sibling::tr[last()]//div[@class='icon-small-delete']"));
     private BaseElement dialogDeleteButton = new(By.XPath("//*[@id='deleteDialog']//input"));
     private BaseElement dialogAcceptDeleteButton = new(By.XPath("//*[@id='deleteDialog']//a"));

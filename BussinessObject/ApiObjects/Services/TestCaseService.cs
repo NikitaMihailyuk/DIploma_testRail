@@ -86,7 +86,7 @@ namespace BussinessObject.ApiObjects.Services
         {
             var request = new RestRequest(UpdateTestCaseEndPoint, Method.Post).AddUrlSegment("case_id", case_id);
             var body = testCaseBuilder.TestCaseCreator();
-            body.Section_id = 186;
+            body.Section_id = 188;
             request.AddBody(body);
 
             return apiClient.Execute(request);

@@ -75,7 +75,7 @@ namespace UnitTests.ApiTests
         [Category("Smoke")]
         public void GetTestCase()
         {
-            int testId = 2287;
+            int testId = 2299;
 
             var response = caseService.GetTestCase(testId);
             Console.WriteLine(response.Content);
@@ -95,7 +95,7 @@ namespace UnitTests.ApiTests
         [Category("Smoke")]
         public void CreateTestCase()
         {
-            int section_id = 186;
+            int section_id = 188;
 
             var response = caseService.CreateTestCase(section_id);
             Console.WriteLine(response.Content);
@@ -133,7 +133,7 @@ namespace UnitTests.ApiTests
         [Category("Smoke")]
         public void UpdateTestCase()
         {
-            int testCaseID = 2287;
+            int testCaseID = 2299;
             var response = caseService.UpdateTestCase(testCaseID);
             Console.WriteLine(response.Content);
             Console.WriteLine(response.StatusCode);
@@ -203,7 +203,7 @@ namespace UnitTests.ApiTests
         [Category("Smoke")]
         public void UpdateProject()
         {
-            int idProject = 8;
+            int idProject = 27;
             var response = projectService.UpdateProject(idProject);
             Console.WriteLine(response.Content);
             Console.WriteLine(response.StatusCode);
