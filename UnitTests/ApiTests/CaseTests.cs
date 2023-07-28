@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Models;
 using Newtonsoft.Json;
+using Allure.Commons;
+using NUnit.Allure.Attributes;
 
 namespace UnitTests.ApiTests
 {
@@ -30,6 +32,13 @@ namespace UnitTests.ApiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void GetRuns()
         {
             var response = caseService.GetRuns(1);
@@ -39,6 +48,13 @@ namespace UnitTests.ApiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-negative")]
+        [Category("Smoke")]
         public void InvalidToken()
         {
             var response = caseService.GetAlltestRunsinvalid(1);
@@ -50,6 +66,13 @@ namespace UnitTests.ApiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void GetTestCase()
         {
             int testId = 2287;
@@ -63,6 +86,13 @@ namespace UnitTests.ApiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void CreateTestCase()
         {
             int section_id = 186;
@@ -75,6 +105,13 @@ namespace UnitTests.ApiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("All")]
         public void DeleteTestCase()
         {
             //  2271 and other
@@ -87,6 +124,13 @@ namespace UnitTests.ApiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void UpdateTestCase()
         {
             int testCaseID = 2287;
@@ -98,6 +142,13 @@ namespace UnitTests.ApiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void GetProject()
         {
             int idProject = 1;
@@ -109,6 +160,13 @@ namespace UnitTests.ApiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void GetProjects()
         {
             var response = projectService.GetProjects();
@@ -119,6 +177,13 @@ namespace UnitTests.ApiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void AddProjects()
         {
             var response = projectService.CreateProject();
@@ -129,6 +194,13 @@ namespace UnitTests.ApiTests
 
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void UpdateProject()
         {
             int idProject = 8;

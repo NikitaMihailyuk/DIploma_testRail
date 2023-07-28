@@ -20,13 +20,13 @@ namespace UnitTests.UiTests
         [AllureOwner("Nikita")]
         [AllureSuite("TestRail")]
         [AllureSubSuite("TestRail-negative")]
+        [Category("Smoke")]
         public void ErrorLogin()
         {
             var user = UserBuilder.GetRandomUser();
             new LoginPage()
                 .OpenPage()
                 .Login(user).LoginErrorAssert();
-
         }
 
 
@@ -37,6 +37,7 @@ namespace UnitTests.UiTests
         [AllureOwner("Nikita")]
         [AllureSuite("TestRail")]
         [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void GoodLogin()
         {
             var user = UserBuilder.GetTestRailUser();
@@ -55,6 +56,7 @@ namespace UnitTests.UiTests
         [AllureOwner("Nikita")]
         [AllureSuite("TestRail")]
         [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void CreateProject()
         {
             var user = UserBuilder.GetTestRailUser();
@@ -75,6 +77,7 @@ namespace UnitTests.UiTests
         [AllureOwner("Nikita")]
         [AllureSuite("TestRail")]
         [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void EditProject()
         {
             var user = UserBuilder.GetTestRailUser();
@@ -95,6 +98,7 @@ namespace UnitTests.UiTests
         [AllureOwner("Nikita")]
         [AllureSuite("TestRail")]
         [AllureSubSuite("TestRail-possitive")]
+        [Category("ALL")]
         public void DeleteProject()
         {
             var user = UserBuilder.GetTestRailUser();
@@ -116,6 +120,7 @@ namespace UnitTests.UiTests
         [AllureOwner("Nikita")]
         [AllureSuite("TestRail")]
         [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void CreateTestCase()
         {
             var user = UserBuilder.GetTestRailUser();
@@ -134,6 +139,7 @@ namespace UnitTests.UiTests
         [AllureOwner("Nikita")]
         [AllureSuite("TestRail")]
         [AllureSubSuite("TestRail-possitive")]
+        [Category("All")]
         public void DeleteTestCase()
         {
             var user = UserBuilder.GetTestRailUser();
