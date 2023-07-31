@@ -73,6 +73,4 @@ NLog;
 
 ***CreateTestCase***  -  create test case in existing project in UI
 
-***DeleteTestCase*** - delete test case in existing project in UI
-
-
+***DeleteTestCase*** - delete test case in existing project in U
