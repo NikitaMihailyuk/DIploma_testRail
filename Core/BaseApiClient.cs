@@ -14,7 +14,7 @@ namespace Core
     public class BaseApiClient
     {
         private RestClient restClient;
-        protected Logger logger = LogManager.GetCurrentClassLogger();
+        public static Logger logger = LogManager.GetCurrentClassLogger();
         Faker faker = new Faker();
 
         public BaseApiClient(string url)

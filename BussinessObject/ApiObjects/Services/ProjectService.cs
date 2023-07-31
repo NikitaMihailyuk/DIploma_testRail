@@ -29,6 +29,7 @@ namespace BussinessObject.ApiObjects.Services
         public RestResponse GetProject(int idProject)
         {
             var request = new RestRequest(GetProjectEndpoint, Method.Get).AddUrlSegment("project_id", idProject); ;
+            logger.Info("Get Project by code"+idProject);
             return apiClient.Execute(request);
         }
 

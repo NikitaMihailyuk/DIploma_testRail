@@ -42,8 +42,8 @@ namespace UnitTests.ApiTests
         public void GetRuns()
         {
             var response = caseService.GetRuns(1);
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
@@ -58,8 +58,8 @@ namespace UnitTests.ApiTests
         public void InvalidToken()
         {
             var response = caseService.GetAlltestRunsinvalid(1);
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.That(response.StatusDescription, Is.EqualTo("Unauthorized"));
         }
 
@@ -73,11 +73,12 @@ namespace UnitTests.ApiTests
         [Category("Smoke")]
         public void GetTestCase()
         {
-            int testId = 2299;
+            int testId = 1;
 
             var response = caseService.GetTestCase(testId);
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
+
             TestCase? testData = JsonConvert.DeserializeObject<TestCase>(response.Content);
             Assert.AreEqual(testId, testData.Id);
         }
@@ -92,11 +93,13 @@ namespace UnitTests.ApiTests
         [Category("Smoke")]
         public void CreateTestCase()
         {
-            int section_id = 188;
+            int section_id = 1;
 
             var response = caseService.CreateTestCase(section_id);
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.Content.ToString);
+
+
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
@@ -113,8 +116,8 @@ namespace UnitTests.ApiTests
             //  2271 and other
             int testCaseID = 2271;
             var response = caseService.DeleteTestCase(testCaseID);
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
@@ -128,10 +131,10 @@ namespace UnitTests.ApiTests
         [Category("Smoke")]
         public void UpdateTestCase()
         {
-            int testCaseID = 2299;
+            int testCaseID = 1;
             var response = caseService.UpdateTestCase(testCaseID);
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
@@ -147,8 +150,8 @@ namespace UnitTests.ApiTests
         {
             int idProject = 1;
             var response = projectService.GetProject(idProject);
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
@@ -163,8 +166,8 @@ namespace UnitTests.ApiTests
         public void GetProjects()
         {
             var response = projectService.GetProjects();
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
@@ -179,8 +182,8 @@ namespace UnitTests.ApiTests
         public void AddProjects()
         {
             var response = projectService.CreateProject();
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
@@ -196,8 +199,8 @@ namespace UnitTests.ApiTests
         {
             int idProject = 27;
             var response = projectService.UpdateProject(idProject);
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
@@ -206,8 +209,8 @@ namespace UnitTests.ApiTests
         {
             int idProject = 7;
             var response = projectService.DeleteProject(idProject);
-            logger.Info(response.Content);
-            logger.Info(response.StatusCode);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
     }

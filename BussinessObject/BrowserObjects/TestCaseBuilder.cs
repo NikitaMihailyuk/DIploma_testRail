@@ -3,6 +3,7 @@ using Core.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -18,7 +19,7 @@ namespace BussinessObject.BrowserObjects
         {
             return new TestCase
             {
-                Title = Faker.Lorem.Text(),
+                Title = Faker.Lorem.Word(),
                 Type_id = 1,
                 Template_id = 1,
                 Priority_id = 1,
