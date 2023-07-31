@@ -12,7 +12,6 @@ namespace BussinessObject.BrowserObjects.SeleniumElements
         public ProjectRadioButton(By locator) : base(locator)
         {
         }
-
         public ProjectRadioButton(string locator) : base($"//input[@id='{locator}']")
         {
         }

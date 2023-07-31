@@ -16,9 +16,9 @@ namespace Core.Configuration
 
         private static IConfigurationRoot configurationRoot;
         static string configPath = DirectoryHelper.GetTestDataFolderPath()+"ApiSetting.json";
+
         static Configuration()
         {
-
             configurationRoot = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile(configPath, optional: true, reloadOnChange: true)

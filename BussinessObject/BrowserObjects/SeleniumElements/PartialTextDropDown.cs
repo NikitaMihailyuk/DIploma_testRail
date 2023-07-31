@@ -41,7 +41,6 @@ namespace BussinessObject.BrowserObjects.SeleniumElements
             WebDriver.FindElement(locator).SendKeys(option);
             WebDriver.FindElement(by).Click();
         }
-
         public void Clear()
         {
             new BaseElement(ClearSectionCross).ClickElementViaJs();

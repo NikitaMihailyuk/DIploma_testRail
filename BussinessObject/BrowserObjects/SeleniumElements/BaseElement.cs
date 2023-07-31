@@ -13,7 +13,6 @@ namespace BussinessObject.BrowserObjects.SeleniumElements
         protected IWebDriver WebDriver => Browser.Instance.Driver;
         public IWebElement GetElement() => WebDriver.FindElement(locator);
         protected By locator;
-
         public BaseElement(By locator)
         {
             this.locator = locator;
@@ -28,6 +27,5 @@ namespace BussinessObject.BrowserObjects.SeleniumElements
         {
             return Browser.Instance.ExecuteScript("arguments[0].click();", GetElement());
         }
-
     }
 }

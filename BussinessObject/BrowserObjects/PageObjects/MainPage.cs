@@ -53,6 +53,7 @@ public class MainPage : BaseBrowserPage
 
         return new ProjectPage();
     }
+
     [AllureStep]
     public MainPage DeleteProject()
     {
@@ -65,6 +66,7 @@ public class MainPage : BaseBrowserPage
 
         return new MainPage();
     }
+
     [AllureStep]
     public TestCasePage OpenTestCasePage()
     {

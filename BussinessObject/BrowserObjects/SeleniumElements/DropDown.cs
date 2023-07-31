@@ -16,7 +16,6 @@ namespace BussinessObject.BrowserObjects.SeleniumElements
         public DropDown(string locator) : base($"//label[text()='{locator}']/following-sibling::div//button")
         {
         }
-
         public void Select(string option)
         {
             WebDriver.FindElement(locator).Click();

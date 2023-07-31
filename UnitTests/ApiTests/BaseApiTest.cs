@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Core.Configuration;
 using NUnit.Allure.Core;
 using Allure.Commons;
+using NLog;
 
 namespace UnitTests.ApiTests
 {
@@ -16,7 +17,6 @@ namespace UnitTests.ApiTests
     {
         private AllureLifecycle allure;
         protected BaseApiClient apiClient;
-
 
         [OneTimeSetUp]
         public void InitApiClient()

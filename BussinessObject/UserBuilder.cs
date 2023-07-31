@@ -13,7 +13,6 @@ namespace BussinessObject
     {
         static Faker Faker = new();
 
-
         public static UserModel GetTestRailUser()
         {
             return new UserModel
@@ -22,7 +21,6 @@ namespace BussinessObject
              Password = Configuration.Browser.ListOfUsers[0].Password
             };
         }
-
 
         public static UserModel GetStandartUserWithoutName()
         {
@@ -33,7 +31,6 @@ namespace BussinessObject
             };
         }
 
-
         public static UserModel GetRandomUser()
         {
             return new UserModel
@@ -42,7 +39,6 @@ namespace BussinessObject
                 Password = Faker.Internet.Password(),
             };
         }
-
 
         public static UserModel GetRandomUserWithPassword(string password) => new()
         {

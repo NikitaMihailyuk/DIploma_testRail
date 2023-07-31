@@ -1,7 +1,6 @@
 ﻿using Bogus;
 using BussinessObject.ApiObjects.Services;
 using Core;
-using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,6 +12,7 @@ using Core.Models;
 using Newtonsoft.Json;
 using Allure.Commons;
 using NUnit.Allure.Attributes;
+using NLog;
 
 namespace UnitTests.ApiTests
 {
@@ -21,6 +21,7 @@ namespace UnitTests.ApiTests
     {
         protected TestCaseService caseService;
         protected ProjectService projectService;
+        Logger logger = LogManager.GetCurrentClassLogger();
 
 
         [OneTimeSetUp]
@@ -29,7 +30,6 @@ namespace UnitTests.ApiTests
             caseService = new TestCaseService();
             projectService = new ProjectService();
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -42,10 +42,10 @@ namespace UnitTests.ApiTests
         public void GetRuns()
         {
             var response = caseService.GetRuns(1);
-            Console.WriteLine(response.Content);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -58,12 +58,10 @@ namespace UnitTests.ApiTests
         public void InvalidToken()
         {
             var response = caseService.GetAlltestRunsinvalid(1);
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.ErrorException);
-            Console.WriteLine(response.StatusCode);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             Assert.That(response.StatusDescription, Is.EqualTo("Unauthorized"));
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -78,12 +76,11 @@ namespace UnitTests.ApiTests
             int testId = 2299;
 
             var response = caseService.GetTestCase(testId);
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.StatusCode);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             TestCase? testData = JsonConvert.DeserializeObject<TestCase>(response.Content);
             Assert.AreEqual(testId, testData.Id);
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -98,11 +95,10 @@ namespace UnitTests.ApiTests
             int section_id = 188;
 
             var response = caseService.CreateTestCase(section_id);
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.StatusCode);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -117,11 +113,10 @@ namespace UnitTests.ApiTests
             //  2271 and other
             int testCaseID = 2271;
             var response = caseService.DeleteTestCase(testCaseID);
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.StatusCode);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -135,11 +130,10 @@ namespace UnitTests.ApiTests
         {
             int testCaseID = 2299;
             var response = caseService.UpdateTestCase(testCaseID);
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.StatusCode);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -153,11 +147,10 @@ namespace UnitTests.ApiTests
         {
             int idProject = 1;
             var response = projectService.GetProject(idProject);
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.StatusCode);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -170,11 +163,10 @@ namespace UnitTests.ApiTests
         public void GetProjects()
         {
             var response = projectService.GetProjects();
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.StatusCode);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -187,11 +179,10 @@ namespace UnitTests.ApiTests
         public void AddProjects()
         {
             var response = projectService.CreateProject();
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.StatusCode);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -205,19 +196,18 @@ namespace UnitTests.ApiTests
         {
             int idProject = 27;
             var response = projectService.UpdateProject(idProject);
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.StatusCode);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-
 
         [Test]
         public void DeleteProject()
         {
             int idProject = 7;
             var response = projectService.DeleteProject(idProject);
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.StatusCode);
+            logger.Info(response.Content);
+            logger.Info(response.StatusCode);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
     }
