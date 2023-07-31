@@ -18,35 +18,59 @@ the created data must be registered in apsetting also update some IDs in the var
 ### Used libriary 
 
 Nunit 
+
 NUnit.Allure.Attributes;  
+
 OpenQA.Selenium.Chrome;  
+
 OpenQA.Selenium.Interactions; 
+
 Microsoft.Extensions.Configuration; 
+
 RestSharp; 
+
 RestSharp.Authenticators; 
+
 Newtonsoft.Json; 
+
 NLog;
 
 ### Test scenaries
 #### API tests
 
 ***GetRuns***  - Get all test runs from project by code project
+
 ***InvalidToken***  - get error unauthorized
+
 ***GetTestCase***  - Get all information about test case by code
+
 ***CreateTestCase*** - create test case with random content  by code test cases
+
 ***DeleteTestCase*** - delete test case  by code test cases
+
 ***UpdateTestCase*** - update test case with random content by code test cases
+
 ***GetProject***  - get all information about project by code projects
+
 ***GetProjects***  - get information about all projects on account
+
 ***AddProjects***  -   create project with random content 
+
 ***UpdateProject*** - update project with random content by code projects
+
 ***DeleteProject***  - delete project by code projects
+
 
 #### UI tests
 
 ***GoodLogin***   - login and assert info about account in UI
+
 ***CreateProject***  - create project with random content in UI
+
 ***EditProject*** - edit existing project with random content in UI
+
 ***DeleteProject*** -  delete existing project in UI
+
 ***CreateTestCase***  -  create test case in existing project in UI
-***DeleteTestCase*** - delete test case in existing project in UI
+
+***DeleteTestCase*** - delete test case in existing project in U
