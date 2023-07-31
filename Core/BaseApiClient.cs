@@ -9,12 +9,12 @@ using RestSharp.Authenticators;
 using Bogus;
 using System.Security.Policy;
 
-namespace DIploma_testRail.Core
+namespace Core
 {
     public class BaseApiClient
     {
         private RestClient restClient;
-        protected Logger logger = LogManager.GetCurrentClassLogger();
+        public static Logger logger = LogManager.GetCurrentClassLogger();
         Faker faker = new Faker();
 
         public BaseApiClient(string url)
@@ -23,12 +23,11 @@ namespace DIploma_testRail.Core
             {
                 MaxTimeout = 10000,
                 ThrowOnAnyError = false,
-                Authenticator = new HttpBasicAuthenticator("Isthisnikita@gmail.com", Configuration.Configuration.Api.Token)
+                Authenticator = new HttpBasicAuthenticator(Configuration.Configuration.Browser.ListOfUsers[0].Name, Configuration.Configuration.Api.Token)
              };
 
             restClient = new RestClient(option);
             restClient.AddDefaultHeader("Content-Type", "application/json");
-          
            }
         
         public void AddToken(string token)
@@ -41,7 +40,7 @@ namespace DIploma_testRail.Core
             {
                 MaxTimeout = 10000,
                 ThrowOnAnyError = false,
-                Authenticator = new HttpBasicAuthenticator("Isthisnikita@gmail.com", faker.Internet.Password())
+                Authenticator = new HttpBasicAuthenticator(Configuration.Configuration.Browser.ListOfUsers[0].Name, faker.Internet.Password())
             };
             restClient = new RestClient(option);
         }

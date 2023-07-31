@@ -1,6 +1,25 @@
 {
   "Api": {
-    "BaseUrl": "https://isthisnikita.testrail.io/index.php?/api/v2",
-    "Token": "vd0SC5SATgakfaOApOYa-DJPIScT3dEp1AzUgVms5"
+    "BaseUrl": "https://isthisnikita2.testrail.io",
+    "Token": "OLTEeeGSFsBKMRpzPWfa-2/1qAel56sfQrLpb6C0E"
+  },
+  "Browser": {
+    "Hedless": "false",
+    "Type": "Chrome",
+    "TimeOut": 10,
+    "ListOfUsers": [
+      {
+        "Name": "roychikenotik@gmail.com",
+        "Password": "RoyRoy_13"
+      },
+      {
+        "Name": "roychikenotik2@gmail.com",
+        "Password": "RoyRoy_13"
+      }
+    ]
+  },
+  "Account": {
+    "FirstName": "Nikita",
+    "LastName": "nikita"
   }
 }

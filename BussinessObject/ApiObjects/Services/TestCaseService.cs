@@ -4,82 +4,91 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DIploma_testRail.Core;
+using Core;
 using RestSharp;
-using DIploma_testRail.Core.Configuration;
+using Core.Configuration;
+using BussinessObject.BrowserObjects;
+using NUnit.Framework.Interfaces;
+using NUnit.Allure.Attributes;
+using NLog;
+using OpenQA.Selenium.Interactions;
 
-namespace DIploma_testRail.BussinessObject.ApiObjects.Services
+namespace BussinessObject.ApiObjects.Services
 {
     public class TestCaseService : BaseService
     {
         public string CaseEndpoint = "/case";
-        public string GetCaseByCodeEndpoint = "/index.php?/api/v2/get_runs/{code}";
-        public string GetCaseByCodeEndpointbulk = "/case/{code}/bulk";
-        public string GetCaseByID = "/case/{code}/{id}";
+        public string GetRunsByCodeEndpoint = "/index.php?/api/v2/get_runs/{code}";
+        public string GetTestCaseEndpoint = "index.php?/api/v2/get_case/{case_id}";
+        public string GetTestCaseFieldsEndpoint = "/index.php?/api/v2/get_case_fields/{case_id}";
+        public string CreateTestCaseEndPoint = "index.php?/api/v2/add_case/{section_id}";
+        public string UpdateTestCaseEndPoint = "index.php?/api/v2/update_case/{case_id}";
+        public string DeleteTestCaseEndpoint = "index.php?/api/v2/delete_case/{case_id}&soft=1";
 
+        TestCaseBuilder testCaseBuilder = new TestCaseBuilder();
 
         public TestCaseService() : base(Configuration.Api.BaseUrl)
+        {}
+   
+        [AllureStep]
+        public RestResponse GetRuns(int projectCodeId)
         {
-        }
+            var request = new RestRequest(GetRunsByCodeEndpoint, Method.Get).AddUrlSegment("code", projectCodeId); ;
 
-        public RestResponse GetRuns(string caseCode)
-        {
-            var request = new RestRequest(GetCaseByCodeEndpoint, Method.Get).AddUrlSegment("code", caseCode); ;
-            request.AddBody(caseCode);
             return apiClient.Execute(request);
         }
 
-        public RestResponse CreateANewTestCase(string caseCode, string title)
+        [AllureStep]
+        public RestResponse GetAlltestRunsinvalid(int projectCodeId)
         {
-            var request = new RestRequest(GetCaseByCodeEndpoint, Method.Post).AddUrlSegment("code", caseCode);
+            apiClient.invalidAPItoken(Configuration.Api.BaseUrl);
+            var request = new RestRequest(GetRunsByCodeEndpoint, Method.Get).AddUrlSegment("code", projectCodeId);
 
-            var body = new Dictionary<string, object>()
-            {
-                {"title", title},
-            };
+            return apiClient.Execute(request);
+        }
+
+        [AllureStep]
+        public RestResponse GetTestCase(int idTestCase)
+        {
+            var request = new RestRequest(GetTestCaseEndpoint, Method.Get).AddUrlSegment("case_id", idTestCase);
+
+            return apiClient.Execute(request);
+        }
+
+        [AllureStep]
+        public RestResponse GetTestCaseFields(int idTestCase)
+        {
+            var request = new RestRequest(GetTestCaseFieldsEndpoint, Method.Get).AddUrlSegment("case_id", idTestCase);
+
+            return apiClient.Execute(request);
+        }
+
+        [AllureStep]
+        public RestResponse DeleteTestCase(int idTestCase)
+        {
+            var request = new RestRequest(GetTestCaseEndpoint, Method.Get).AddUrlSegment("case_id", idTestCase); 
+
+            return apiClient.Execute(request);
+        }
+
+        [AllureStep]
+        public RestResponse CreateTestCase(int section_id)
+        {
+            var request = new RestRequest(CreateTestCaseEndPoint, Method.Post).AddUrlSegment("section_id", section_id);
+            var body = testCaseBuilder.TestCaseCreator();
             request.AddBody(body);
-            /// request = request.AddParameter("application/json", "{\"title\":" + title + "}", ParameterType.RequestBody);
+
             return apiClient.Execute(request);
         }
 
-        public RestResponse GetASpecificTestCase(string caseCode, int id)
+        [AllureStep]
+        public RestResponse UpdateTestCase(int case_id)
         {
-            var request = new RestRequest(GetCaseByID, Method.Get).AddUrlSegment("code", caseCode).AddUrlSegment("id", id);
-            return apiClient.Execute(request);
-        }
-
-        public RestResponse DeleteTestCase(string caseCode, int id)
-        {
-            var request = new RestRequest(GetCaseByID, Method.Delete).AddUrlSegment("code", caseCode).AddUrlSegment("id", id);
-            return apiClient.Execute(request);
-        }
-
-        public RestResponse UpdateTestCase(string caseCode, int id, string newTitle)
-        {
-            var request = new RestRequest(GetCaseByID, Method.Patch).AddUrlSegment("code", caseCode).AddUrlSegment("id", id);
-
-            var body = new Dictionary<string, object>()
-            {
-                {"title", newTitle},
-            };
-
+            var request = new RestRequest(UpdateTestCaseEndPoint, Method.Post).AddUrlSegment("case_id", case_id);
+            var body = testCaseBuilder.TestCaseCreator();
+            body.Section_id = 1;
             request.AddBody(body);
-            return apiClient.Execute(request);
-        }
 
-        public RestResponse CreateTestCasesinBulk(string caseCode, string title)
-        {
-            var request = new RestRequest(GetCaseByCodeEndpointbulk, Method.Post).AddUrlSegment("code", caseCode);
-            request = request.AddParameter("application/json", "{\"cases\":[{\"title\":\"" + title + "\"}]}", ParameterType.RequestBody);
-            request.AddBody(caseCode);
-            return apiClient.Execute(request);
-        }
-
-        public RestResponse GetAlltestCasesinvalid(string caseCode)
-        {
-
-            apiClient.invalidAPItoken("https://isthisnikita.testrail.io");
-            var request = new RestRequest(GetCaseByCodeEndpoint, Method.Get).AddUrlSegment("code", caseCode); ;
             return apiClient.Execute(request);
         }
     }

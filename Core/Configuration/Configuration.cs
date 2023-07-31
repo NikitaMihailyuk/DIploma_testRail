@@ -1,23 +1,27 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Core.Configuration.Config_Models;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DIploma_testRail.Core.Configuration
+namespace Core.Configuration
 {
     public class Configuration
     {
         public static ApiConfiguration Api => BindConfiguration<ApiConfiguration>();
+        public static BrowserConfiguration Browser => BindConfiguration<BrowserConfiguration>();
+        public static AccountSolutionModel Account => BindConfiguration<AccountSolutionModel>();
+
         private static IConfigurationRoot configurationRoot;
+        static string configPath = DirectoryHelper.GetTestDataFolderPath()+"ApiSetting.json";
 
         static Configuration()
         {
-
             configurationRoot = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("ApiSetting.json", optional: true, reloadOnChange: true)
+                .AddJsonFile(configPath, optional: true, reloadOnChange: true)
                 .Build();         
         }
 

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NLog;
 
-namespace DIploma_testRail.Core
+namespace Core
 {
     public class BaseService
     {
@@ -15,7 +15,6 @@ namespace DIploma_testRail.Core
         public BaseService(string url)
         {
             this.apiClient = new BaseApiClient(url);
-
         }
     }
 }

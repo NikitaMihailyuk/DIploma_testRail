@@ -1,5 +1,6 @@
-﻿using DIploma_testRail.BussinessObject.ApiObjects.Services;
-using DIploma_testRail.Core;
+﻿using Bogus;
+using BussinessObject.ApiObjects.Services;
+using Core;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,96 +8,210 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Models;
+using Newtonsoft.Json;
+using Allure.Commons;
+using NUnit.Allure.Attributes;
+using NLog;
 
-namespace DIploma_testRail.UnitTests.ApiTests
+namespace UnitTests.ApiTests
 {
 
-    internal class CaseTests : BaseApiTest
+    internal class ApiTests : BaseApiTest
     {
-
         protected TestCaseService caseService;
+        protected ProjectService projectService;
+        Logger logger = LogManager.GetCurrentClassLogger();
 
 
         [OneTimeSetUp]
         public void InitialService()
         {
             caseService = new TestCaseService();
+            projectService = new ProjectService();
         }
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void GetRuns()
         {
-            var caseCode = "1";
-
-            var response = caseService.GetRuns(caseCode);
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.ErrorException);
-            Console.WriteLine(response.StatusCode);
-            Console.WriteLine(Directory.GetCurrentDirectory() + "\\TestData");
+            var response = caseService.GetRuns(1);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
 
-
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-negative")]
+        [Category("Smoke")]
         public void InvalidToken()
         {
-
-            var response = caseService.GetAlltestCasesinvalid("1");
-            Console.WriteLine(response.Content);
-            Console.WriteLine(response.ErrorException);
-            Console.WriteLine(response.StatusCode);
+            var response = caseService.GetAlltestRunsinvalid(1);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.That(response.StatusDescription, Is.EqualTo("Unauthorized"));
         }
 
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
+        public void GetTestCase()
+        {
+            int testId = 1;
+
+            var response = caseService.GetTestCase(testId);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
+
+            TestCase? testData = JsonConvert.DeserializeObject<TestCase>(response.Content);
+            Assert.AreEqual(testId, testData.Id);
+        }
+
+        [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
+        public void CreateTestCase()
+        {
+            int section_id = 1;
+
+            var response = caseService.CreateTestCase(section_id);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.Content.ToString);
+
+
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+        }
+
+        [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("All")]
         public void DeleteTestCase()
         {
-            var caseCode = "TESTM";
-            var id = 3;
-            var response = caseService.DeleteTestCase(caseCode, id);
-            Console.WriteLine(response.Content);
+            //  2271 and other
+            int testCaseID = 2271;
+            var response = caseService.DeleteTestCase(testCaseID);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
+
         [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
         public void UpdateTestCase()
         {
-            var caseCode = "TESTM";
-            var id = 2;
-            var newTitle = "new_test_case2";
-
-            var response = caseService.UpdateTestCase(caseCode, id, newTitle);
-            Console.WriteLine(response.Content);
+            int testCaseID = 1;
+            var response = caseService.UpdateTestCase(testCaseID);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-        [Test]
-        public void CreateTestCasesinBulk()
-        {
-            var caseCode = "TESTM";
-            var title = "test_case_bulk";
 
-            var response = caseService.CreateTestCasesinBulk(caseCode, title);
-            Console.WriteLine(response.Content);
+        [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
+        public void GetProject()
+        {
+            int idProject = 1;
+            var response = projectService.GetProject(idProject);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
+
         [Test]
-        public void CreateANewTestCase()
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
+        public void GetProjects()
         {
-            var caseCode = "TESTM";
-            var title = "test_case";
-            var response = caseService.CreateANewTestCase(caseCode, title);
-            Console.WriteLine(response.Content);
+            var response = projectService.GetProjects();
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
-        [Test]
-        public void GetASpecificTestCase()
-        {
-            var caseCode = "TESTM";
-            var id = 2;
 
-            var response = caseService.GetASpecificTestCase(caseCode, id);
-            Console.WriteLine(response.Content);
+        [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
+        public void AddProjects()
+        {
+            var response = projectService.CreateProject();
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+        }
+
+        [Test]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("Detailed Description")]
+        [AllureOwner("Nikita")]
+        [AllureSuite("TestRail")]
+        [AllureSubSuite("TestRail-possitive")]
+        [Category("Smoke")]
+        public void UpdateProject()
+        {
+            int idProject = 27;
+            var response = projectService.UpdateProject(idProject);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
+            Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
+        }
+
+        [Test]
+        public void DeleteProject()
+        {
+            int idProject = 7;
+            var response = projectService.DeleteProject(idProject);
+            logger.Info(response.Content.ToString);
+            logger.Info(response.StatusCode.ToString);
             Assert.IsTrue(response.StatusCode.Equals(HttpStatusCode.OK));
         }
     }
 }
-

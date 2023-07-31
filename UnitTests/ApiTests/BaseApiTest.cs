@@ -1,21 +1,27 @@
-﻿using DIploma_testRail.Core;
+﻿using Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DIploma_testRail.Core.Configuration;
+using Core.Configuration;
+using NUnit.Allure.Core;
+using Allure.Commons;
+using NLog;
 
-namespace DIploma_testRail.UnitTests.ApiTests
+namespace UnitTests.ApiTests
 {
+    [AllureNUnit]
+    [Parallelizable(ParallelScope.Fixtures)]
     internal class BaseApiTest
     {
-
+        private AllureLifecycle allure;
         protected BaseApiClient apiClient;
 
         [OneTimeSetUp]
         public void InitApiClient()
         {
+            allure = AllureLifecycle.Instance;
             apiClient = new BaseApiClient(Configuration.Api.BaseUrl);
         }
     }
