@@ -24,7 +24,6 @@ namespace UnitTests.UiTests
             allure = AllureLifecycle.Instance;
         }
 
-
         [TearDown]
         public void TearDown()
         {

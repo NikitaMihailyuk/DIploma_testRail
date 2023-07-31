@@ -10,7 +10,6 @@ using NUnit.Allure.Attributes;
 using NLog;
 using BussinessObject.BrowserObjects.PageObjects;
 
-
 namespace BussinessObject.BrowserObjects.PageObjects
 {
     public class LoginPage  : BaseBrowserPage

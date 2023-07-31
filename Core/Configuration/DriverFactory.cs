@@ -23,7 +23,6 @@ namespace Core.Configuration
 
             return new ChromeDriver(options);
         }
-
         public static IWebDriver GetFirefoxDriver()
         {
             FirefoxOptions options = new FirefoxOptions();

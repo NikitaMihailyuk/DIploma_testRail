@@ -29,7 +29,6 @@ namespace UnitTests.UiTests
                 .Login(user).LoginErrorAssert();
         }
 
-
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTag("Smoke")]
@@ -47,7 +46,6 @@ namespace UnitTests.UiTests
                 .Login(user)
                 .AssertUserName();
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -69,7 +67,6 @@ namespace UnitTests.UiTests
                 .SuccesMessageAssert(DataHelper.succesCreateProjectMessage);
         }
 
-
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTag("Smoke")]
@@ -89,7 +86,6 @@ namespace UnitTests.UiTests
                 .EditProject()
                 .SuccesMessageAssert(DataHelper.succesUpdateProjectMessage);
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
@@ -112,7 +108,6 @@ namespace UnitTests.UiTests
         #endregion Project 
         #region Tests
 
-
         [Test]
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTag("Smoke")]
@@ -130,7 +125,6 @@ namespace UnitTests.UiTests
                 .OpenTestCasePage()
                 .CreateTestCase();
         }
-
 
         [Test]
         [AllureSeverity(SeverityLevel.normal)]

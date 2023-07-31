@@ -28,7 +28,6 @@ namespace Core
 
             restClient = new RestClient(option);
             restClient.AddDefaultHeader("Content-Type", "application/json");
-          
            }
         
         public void AddToken(string token)

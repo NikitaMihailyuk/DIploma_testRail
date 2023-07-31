@@ -12,7 +12,6 @@ namespace BussinessObject.BrowserObjects.SeleniumElements
         public Button(By locator) : base(locator)
         {
         }
-
         public Button(string value) : base($"//*[@id='{value}']")
         {
         }

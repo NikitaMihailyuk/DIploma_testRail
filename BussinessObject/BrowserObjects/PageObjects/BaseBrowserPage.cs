@@ -20,7 +20,6 @@ namespace BussinessObject.BrowserObjects.PageObjects
         private BaseElement messageErrorText = new(By.XPath("//*[@class='error-text']"));
         private BaseElement userNameElement = new(By.XPath("//*[@class='navigation-username']"));
 
-
         public void LoginErrorAssert()
         {
             string errorTopString = DataHelper.commonErrorMessage;
@@ -31,14 +30,12 @@ namespace BussinessObject.BrowserObjects.PageObjects
             Assert.AreEqual(errorString, errorText);
         }
 
-
         public void AssertUserName()
         {
             var userName = Configuration.Account.ToString();
             string cuurentUserName = userNameElement.GetElement().Text;
             Assert.AreEqual(cuurentUserName, userName);
         }
-
 
         public void SuccesMessageAssert(string succesMessageText)
         {
